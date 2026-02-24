@@ -203,3 +203,38 @@ h2::after {
   transform: translateY(-4px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
+
+/* HEADER TOP + LOGO */
+/* riga superiore dell’header: logo a sinistra e menu a destra */
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* stile del logo */
+.logo {
+  height: 52px;
+  width: auto;
+  display: block;
+  border-radius: 8px; /* utile perché è JPG */
+}
+
+/* versione mobile: logo sopra e menu sotto (più leggibile) */
+@media (max-width: 600px) {
+  .header-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .logo {
+    height: 46px;
+  }
+}
