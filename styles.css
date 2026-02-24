@@ -1,7 +1,9 @@
+/* base: così padding e border non sballano mai */
 * {
   box-sizing: border-box;
 }
 
+/* impostazioni generali della pagina (font, sfondo, colori) */
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -10,6 +12,7 @@ body {
   color: #111;
 }
 
+/* cornice centrale: tengo tutto largo max 1000px e centrato */
 header,
 section,
 footer {
@@ -18,22 +21,26 @@ footer {
   padding: 24px;
 }
 
+/* header in stile card: bianco, arrotondato e staccato dal fondo */
 header {
   background: white;
   border-radius: 16px;
   margin-top: 24px;
 }
 
+/* titolo principale più grande */
 header h1 {
   margin: 0 0 16px;
   font-size: 32px;
 }
 
+/* sottotitolo un po’ più chiaro */
 header p {
   margin: 0 0 16px;
   color: #333;
 }
 
+/* menu semplice: link in riga con un po’ di spazio */
 nav ul {
   list-style: none;
   padding: 0;
@@ -42,24 +49,26 @@ nav ul {
   gap: 16px;
 }
 
-
+/* stile dei link del menu (verde, senza sottolineatura) */
 nav a {
   text-decoration: none;
   color: #1b7f5a;
   font-weight: 600;
 }
 
+/* hover menu: cambia tono e metto underline così si capisce che è cliccabile */
 nav a:hover {
   color: #14664a;
   text-decoration: underline;
 }
 
+/* bottone del PDF: lo uso sia in header che nella sezione numeri */
 header a[download],
 #numeri a[download] {
   display: inline-block;
   margin-top: 12px;
   padding: 12px 16px;
-  background: #1b7f5a; 
+  background: #1b7f5a;
   color: white;
   text-decoration: none;
   border-radius: 12px;
@@ -71,16 +80,19 @@ header a[download],
   margin-top: 40px;
 }
 
+/* titolo con spazio sotto (così non è attaccato alle card) */
 #azioni h2 {
   margin-bottom: 24px;
 }
 
+/* griglia card: si adatta da sola in base allo spazio (super comoda) */
 .azioni-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
+/* stile delle card azioni: bianche, arrotondate, con ombra leggera */
 .azioni-grid > div {
   background: white;
   padding: 15px;
@@ -88,26 +100,31 @@ header a[download],
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
+/* testo delle azioni un po’ più chiaro */
 #azioni p {
   margin: 0;
   color: #666;
 }
 
-/* NUMERI */
+
+/* stesso discorso: spazio sopra */
 #numeri {
   margin-top: 40px;
 }
 
+/* distacco tra titolo e box */
 #numeri h2 {
   margin-bottom: 24px;
 }
 
+/* griglia numeri: simile alle azioni, ma più stretta */
 .numeri-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 15px;
 }
 
+/* box dei numeri: stessi bordi e ombra per tenere tutto coerente */
 .numeri-grid > div {
   background: white;
   padding: 18px;
@@ -115,22 +132,24 @@ header a[download],
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
+/* titolo del numero: tolgo margini strani */
 #numeri h3 {
   margin: 0 0 8px;
 }
 
+/* la fonte la voglio ben visibile (qui è rossa apposta) */
 #numeri small {
-  color: #f00808; 
+  color: #f00808;
 }
 
-/* SEZIONI GENERICHE */
+/* anche le sezioni sono tipo "card" con sfondo bianco */
 section {
   background: white;
   border-radius: 16px;
   margin-top: 24px;
 }
 
-/* FOOTER */
+/* footer centrato e semplice, con lo stesso verde del sito */
 footer {
   max-width: 1000px;
   margin: 24px auto 40px;
@@ -139,6 +158,7 @@ footer {
   text-align: center;
 }
 
+/* link nel footer: come il menu, ma più deciso */
 footer a {
   display: inline-block;
   margin-top: 8px;
@@ -147,12 +167,14 @@ footer a {
   color: #1b7f5a; /* verde elegante */
 }
 
+/* hover footer: stessa logica del menu */
 footer a:hover {
   text-decoration: underline;
   color: #14664a;
 }
 
-/* LINEA SOTTO I TITOLI (verde elegante) */
+/*LINEA SOTTO I TITOLI*/
+/* dettaglio estetico: la riga verde sotto gli h2 */
 h2 {
   position: relative;
   padding-bottom: 8px;
@@ -169,11 +191,13 @@ h2::after {
 }
 
 /* HOVER CARD */
+/* hover leggero sulle card per azioni e numeri */
 .azioni-grid > div,
 .numeri-grid > div {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* al passaggio del mouse si alzano un po’ e l’ombra aumenta */
 .azioni-grid > div:hover,
 .numeri-grid > div:hover {
   transform: translateY(-4px);
