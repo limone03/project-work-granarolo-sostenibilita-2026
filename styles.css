@@ -238,3 +238,24 @@ h2::after {
     height: 46px;
   }
 }
+
+/* HEADER TOP + LOGO (fix layout) */
+.header-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:16px;
+}
+
+.header-top nav{ 
+  margin-left:auto; 
+}
+
+.logo{
+  height:52px;
+  width:auto;
+  max-width:180px;     /* evita logo enorme */
+  object-fit:contain;  /* mantiene proporzioni */
+  display:block;
+}
