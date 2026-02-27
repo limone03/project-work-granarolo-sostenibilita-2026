@@ -92,10 +92,10 @@ header a[download],
   margin-bottom: 24px;
 }
 
-/* griglia card: si adatta da sola in base allo spazio (super comoda) */
+/* griglia card: si adatta da sola in base allo spazio */
 .azioni-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /*permette alla griglia di creare tante colonne che entrino tutto nell schermo*/
   gap: 20px;
 }
 
@@ -245,3 +245,4 @@ h2::after {
     height: 46px;
   }
 }
+
