@@ -180,8 +180,7 @@ footer a:hover {
   color: #14664a;
 }
 
-/*LINEA SOTTO I TITOLI*/
-/* dettaglio estetico: la riga verde sotto gli h2 */
+/*LINEA SOTTO I TITOLI, dettaglio estetico: la riga verde sotto gli h2*/
 h2 {
   position: relative;
   padding-bottom: 8px;
@@ -197,8 +196,7 @@ h2::after {
   border-radius: 4px;
 }
 
-/* HOVER CARD */
-/* hover leggero sulle card per azioni e numeri */
+/* HOVER CARD, hover leggero per azioni e numeri */
 .azioni-grid > div,
 .numeri-grid > div {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -211,8 +209,7 @@ h2::after {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
 
-/* HEADER TOP + LOGO */
-/* riga superiore dell’header: logo a sinistra e menu a destra */
+/* Header sopra con il logo.  riga superiore dell’header: logo a sinistra e menu a destra */
 .header-top {
   display: flex;
   align-items: center;
@@ -245,4 +242,5 @@ h2::after {
     height: 46px;
   }
 }
+
 
