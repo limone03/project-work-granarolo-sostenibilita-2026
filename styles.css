@@ -331,6 +331,11 @@ h2::after {
   color: #7a3b3b;
   font-weight: 700;
 }
+.nota-finale {
+  margin: 10px 0 18px;
+  color: #3c5148;
+  font-size: 16px;
+}
 
 /* =========================
    FOOTER
