@@ -4,24 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Granarolo e la sostenibilità della filiera lattiero-casearia</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=3">
 </head>
 
 <body>
+
+    <div class="progress-bar" id="progressBar"></div>
 
     <header id="top">
         <div class="header-top">
             <img src="img/granarolo_logo.jpg" alt="Logo Granarolo" class="logo">
 
             <nav>
-    <ul>
-        <li><a href="#chi-siamo">Chi siamo</a></li>
-        <li><a href="#obiettivo">Obiettivo</a></li>
-        <li><a href="#azioni">Azioni</a></li>
-        <li><a href="#numeri">Numeri</a></li>
-        <li><a href="report/report-sostenibilita-granarolo.pdf" download>Report</a></li>
-    </ul>
-</nav>
+                <ul>
+                    <li><a href="#chi-siamo">Chi siamo</a></li>
+                    <li><a href="#obiettivo">Obiettivo</a></li>
+                    <li><a href="#azioni">Azioni</a></li>
+                    <li><a href="#numeri">Numeri</a></li>
+                    <li><a href="report/report-sostenibilita-granarolo.pdf" download>Report</a></li>
+                </ul>
+            </nav>
         </div>
 
         <div class="hero">
@@ -48,7 +50,7 @@
 
     <main>
 
-        <section id="chi-siamo" class="section-card">
+        <section id="chi-siamo" class="section-card animate-on-scroll">
             <div class="section-intro">
                 <span class="section-label">Contesto</span>
                 <h2>Chi siamo</h2>
@@ -62,7 +64,7 @@
             </p>
         </section>
 
-        <section id="obiettivo" class="section-card highlight-section">
+        <section id="obiettivo" class="section-card highlight-section animate-on-scroll">
             <div class="section-intro">
                 <span class="section-label">Finalità</span>
                 <h2>Obiettivo del progetto</h2>
@@ -75,7 +77,7 @@
             </p>
         </section>
 
-        <section id="azioni" class="section-card">
+        <section id="azioni" class="section-card animate-on-scroll">
             <div class="section-intro">
                 <span class="section-label">Interventi</span>
                 <h2>Azioni principali</h2>
@@ -129,7 +131,7 @@
             </div>
         </section>
 
-        <section id="numeri" class="section-card">
+        <section id="numeri" class="section-card animate-on-scroll">
             <div class="section-intro">
                 <span class="section-label">Dati</span>
                 <h2>Numeri chiave</h2>
@@ -137,33 +139,39 @@
 
             <div class="numeri-grid">
                 <article>
-                    <h3>-60.000 t</h3>
+                    <h3>
+                        <span class="counter" data-target="60000" data-prefix="-" data-suffix=" t">-60.000 t</span>
+                    </h3>
                     <p>CO₂ eq/anno di riduzione stimata grazie al progetto biometano.</p>
                 </article>
 
                 <article>
-                    <h3>-30%</h3>
+                    <h3>
+                        <span class="counter" data-target="30" data-prefix="-" data-suffix="%">-30%</span>
+                    </h3>
                     <p>Obiettivo di riduzione delle emissioni lungo la filiera entro il 2030.</p>
                 </article>
 
                 <article>
-                    <h3>80+</h3>
+                    <h3>
+                        <span class="counter" data-target="80" data-prefix="" data-suffix="+">80+</span>
+                    </h3>
                     <p>Allevamenti monitorati con attività di misurazione e miglioramento continuo.</p>
                 </article>
             </div>
 
             <p class="fonte">
-    Fonte: Report di sostenibilità Granarolo - Summary 2024.
-</p>
+                Fonte: Report di sostenibilità Granarolo - Summary 2024.
+            </p>
 
-<p class="nota-finale">
-    I dati mostrano come la sostenibilità non riguardi un solo aspetto della produzione,
-    ma l’intera filiera: dagli allevamenti fino alla riduzione delle emissioni.
-</p>
+            <p class="nota-finale">
+                I dati mostrano come la sostenibilità non riguardi un solo aspetto della produzione,
+                ma l’intera filiera: dagli allevamenti fino alla riduzione delle emissioni.
+            </p>
 
-<a href="report/report-sostenibilita-granarolo.pdf" download class="btn btn-primary">
-    Scarica il report PDF
-</a>
+            <a href="report/report-sostenibilita-granarolo.pdf" download class="btn btn-primary">
+                Scarica il report PDF
+            </a>
         </section>
 
     </main>
@@ -172,6 +180,10 @@
         <p>Pagina realizzata per Project Work - Cds Informatica per le aziende digitali.</p>
         <a href="#top">Torna su</a>
     </footer>
+
+    <a href="#top" class="back-to-top" id="backToTop">↑</a>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
