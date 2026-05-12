@@ -201,7 +201,8 @@ main {
   border: 1px solid rgba(27, 127, 90, 0.10);
 }
 
-.highlight-section {
+.highlight-section,
+#numeri {
   background:
     linear-gradient(135deg, rgba(27, 127, 90, 0.10), rgba(255, 255, 255, 0.96));
 }
