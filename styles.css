@@ -1,246 +1,375 @@
-/* base: così padding e border non sballano mai */
+/* Impostazioni generali */
 * {
   box-sizing: border-box;
 }
 
-/* impostazioni generali della pagina (font, sfondo, colori) */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
-  background: #f7f7f7;
-  color: #111;
-
-  /* sfondo a tema: resta dietro alle card e dà subito un look più “curato” */
-  background-image: url("img/sfondo-granarolo.png");
-  background-size: cover;            /* riempie lo schermo senza effetto ripetuto */
-  background-position: center;       /* tiene gli elementi principali al centro */
-  background-repeat: no-repeat;      /* evita l’effetto “piastrelle” */
-  background-attachment: fixed;      /* lo sfondo resta fermo mentre si scrolla */
+  color: #12221b;
+  background-color: #eef5ef;
+  background-image:
+    linear-gradient(rgba(238, 245, 239, 0.82), rgba(238, 245, 239, 0.82)),
+    url("img/sfondo-granarolo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-/* cornice centrale: tengo tutto largo max 1000px e centrato */
+/* Contenitore generale */
 header,
-section,
+main,
 footer {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 24px;
 }
 
-/* header in stile card: bianco, arrotondato e staccato dal fondo */
+/* Header */
 header {
-  background: white;
-  border-radius: 16px;
   margin-top: 24px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.10);
+  border: 1px solid rgba(27, 127, 90, 0.12);
 }
 
-/* titolo principale più grande */
-header h1 {
-  margin: 0 0 16px;
-  font-size: 32px;
-}
-
-/* sottotitolo un po’ più chiaro */
-header p {
-  margin: 0 0 16px;
-  color: #333;
-}
-
-/* menu semplice: link in riga con un po’ di spazio */
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 16px;
-}
-
-/* stile dei link del menu (verde, senza sottolineatura) */
-nav a {
-  text-decoration: none;
-  color: #1b7f5a;
-  font-weight: 600;
-}
-
-/* hover menu: cambia tono e metto underline così si capisce che è cliccabile */
-nav a:hover {
-  color: #14664a;
-  text-decoration: underline;
-}
-
-/* bottone del PDF: lo uso sia in header che nella sezione numeri */
-header a[download],
-#numeri a[download] {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 12px 16px;
-  background: #1b7f5a;
-  color: white;
-  text-decoration: none;
-  border-radius: 12px;
-  font-weight: 700;
-}
-
-/* AZIONI */
-#azioni {
-  margin-top: 40px;
-}
-
-/* titolo con spazio sotto (così non è attaccato alle card) */
-#azioni h2 {
-  margin-bottom: 24px;
-}
-
-/* griglia card: si adatta da sola in base allo spazio */
-.azioni-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /*permette alla griglia di creare tante colonne che entrino tutto nell schermo*/
-  gap: 20px;
-}
-
-/* stile delle card azioni: bianche, arrotondate, con ombra leggera */
-.azioni-grid > div {
-  background: white;
-  padding: 15px;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-}
-
-/* testo delle azioni un po’ più chiaro */
-#azioni p {
-  margin: 0;
-  color: #666;
-}
-
-
-/* stesso discorso: spazio sopra */
-#numeri {
-  margin-top: 40px;
-}
-
-/* distacco tra titolo e box */
-#numeri h2 {
-  margin-bottom: 24px;
-}
-
-/* griglia numeri: simile alle azioni, ma più stretta */
-.numeri-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
-}
-
-/* box dei numeri: stessi bordi e ombra per tenere tutto coerente */
-.numeri-grid > div {
-  background: white;
-  padding: 18px;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-}
-
-/* titolo del numero: tolgo margini strani */
-#numeri h3 {
-  margin: 0 0 8px;
-}
-
-/* la fonte la voglio ben visibile (qui è rossa apposta) */
-#numeri small {
-  color: #f00808;
-}
-
-/* anche le sezioni sono tipo "card" con sfondo bianco */
-section {
-  background: white;
-  border-radius: 16px;
-  margin-top: 24px;
-}
-
-/* footer centrato e semplice, con lo stesso verde del sito */
-footer {
-  max-width: 1000px;
-  margin: 24px auto 40px;
-  padding: 16px 24px;
-  color: #1b7f5a; /* verde elegante */
-  text-align: center;
-}
-
-/* link nel footer: come il menu, ma più deciso */
-footer a {
-  display: inline-block;
-  margin-top: 8px;
-  text-decoration: none;
-  font-weight: 700;
-  color: #1b7f5a; /* verde elegante */
-}
-
-/* hover footer: stessa logica del menu */
-footer a:hover {
-  text-decoration: underline;
-  color: #14664a;
-}
-
-/*LINEA SOTTO I TITOLI, dettaglio estetico: la riga verde sotto gli h2*/
-h2 {
-  position: relative;
-  padding-bottom: 8px;
-}
-
-h2::after {
-  content: "";
-  display: block;
-  width: 50px;
-  height: 4px;
-  background: #1b7f5a;
-  margin-top: 6px;
-  border-radius: 4px;
-}
-
-/* HOVER CARD, hover leggero per azioni e numeri */
-.azioni-grid > div,
-.numeri-grid > div {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* al passaggio del mouse si alzano un po’ e l’ombra aumenta */
-.azioni-grid > div:hover,
-.numeri-grid > div:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
-}
-
-/* Header sopra con il logo.  riga superiore dell’header: logo a sinistra e menu a destra */
 .header-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 34px;
 }
 
-/* stile del logo */
 .logo {
-  height: 52px;
+  height: 58px;
   width: auto;
   display: block;
-  border-radius: 8px; /* utile perché è JPG */
+  border-radius: 10px;
 }
 
-/* versione mobile: logo sopra e menu sotto (più leggibile) */
-@media (max-width: 600px) {
+/* Menu */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: #1b7f5a;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+  background: #e4f4ec;
+  color: #115b3f;
+}
+
+/* Hero iniziale */
+.hero {
+  max-width: 820px;
+}
+
+.tag,
+.section-label {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1b7f5a;
+  background: #e4f4ec;
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+header h1 {
+  margin: 0 0 16px;
+  font-size: clamp(34px, 5vw, 58px);
+  line-height: 1.08;
+  color: #0f2d22;
+  letter-spacing: -1.5px;
+}
+
+header p {
+  margin: 0 0 22px;
+  max-width: 720px;
+  color: #3c5148;
+  font-size: 18px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Bottoni */
+.btn {
+  display: inline-block;
+  padding: 13px 18px;
+  border-radius: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: #1b7f5a;
+  color: white;
+  box-shadow: 0 10px 20px rgba(27, 127, 90, 0.22);
+}
+
+.btn-primary:hover {
+  background: #14664a;
+  box-shadow: 0 14px 25px rgba(27, 127, 90, 0.28);
+}
+
+.btn-secondary {
+  background: white;
+  color: #1b7f5a;
+  border: 1px solid rgba(27, 127, 90, 0.25);
+}
+
+.btn-secondary:hover {
+  background: #f1faf5;
+}
+
+/* Sezioni */
+main {
+  padding: 24px 0 0;
+}
+
+.section-card {
+  margin-top: 24px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 24px;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(27, 127, 90, 0.10);
+}
+
+.highlight-section {
+  background:
+    linear-gradient(135deg, rgba(27, 127, 90, 0.10), rgba(255, 255, 255, 0.96));
+}
+
+.section-intro {
+  margin-bottom: 18px;
+}
+
+h2 {
+  position: relative;
+  margin: 0;
+  padding-bottom: 10px;
+  font-size: 30px;
+  color: #0f2d22;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 4px;
+  background: #1b7f5a;
+  margin-top: 8px;
+  border-radius: 999px;
+}
+
+.section-card > p {
+  margin: 0;
+  color: #3c5148;
+  font-size: 17px;
+}
+
+/* Card azioni */
+.azioni-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+
+.azioni-grid article {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 20px;
+  border: 1px solid rgba(27, 127, 90, 0.12);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.azioni-grid article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 14px;
+  border-radius: 14px;
+  background: #e4f4ec;
+  color: #1b7f5a;
+  font-weight: 900;
+}
+
+.azioni-grid h3 {
+  margin: 0 0 10px;
+  color: #0f2d22;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.azioni-grid p {
+  margin: 0;
+  color: #52665d;
+}
+
+/* Numeri */
+.numeri-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.numeri-grid article {
+  background: #0f2d22;
+  color: white;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 10px 28px rgba(15, 45, 34, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.numeri-grid article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 34px rgba(15, 45, 34, 0.30);
+}
+
+.numeri-grid h3 {
+  margin: 0 0 8px;
+  font-size: 34px;
+  color: #ffffff;
+}
+
+.numeri-grid p {
+  margin: 0;
+  color: #dcebe4;
+}
+
+.fonte {
+  margin: 14px 0 18px;
+  font-size: 14px;
+  color: #7a3b3b;
+  font-weight: 700;
+}
+
+/* Footer */
+footer {
+  margin-top: 24px;
+  margin-bottom: 40px;
+  padding: 22px 24px;
+  text-align: center;
+  color: #1b7f5a;
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 20px;
+  border: 1px solid rgba(27, 127, 90, 0.10);
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  display: inline-block;
+  margin-top: 8px;
+  text-decoration: none;
+  font-weight: 800;
+  color: #1b7f5a;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: #14664a;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  header,
+  .section-card,
+  footer {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  header {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
   .header-top {
     flex-direction: column;
     align-items: flex-start;
+    margin-bottom: 26px;
   }
 
   nav ul {
-    flex-wrap: wrap;
-    gap: 12px;
+    gap: 6px;
+  }
+
+  nav a {
+    padding: 7px 10px;
+    font-size: 14px;
   }
 
   .logo {
-    height: 46px;
+    height: 48px;
+  }
+
+  header p {
+    font-size: 16px;
+  }
+
+  .section-card {
+    padding: 22px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
   }
 }
-
-
