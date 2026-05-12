@@ -5,120 +5,167 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Granarolo e la sostenibilità della filiera lattiero-casearia</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- sfondo -->
 </head>
 
 <body>
 
-    <!--menu + titolo: qui l'utente capisce di cosa parla il sito-->
-    <header>
+    <header id="top">
         <div class="header-top">
-            <!--logo Granarolo in alto a sinistra-->
             <img src="img/granarolo_logo.jpg" alt="Logo Granarolo" class="logo">
 
             <nav>
                 <ul>
                     <li><a href="#chi-siamo">Chi siamo</a></li>
+                    <li><a href="#obiettivo">Obiettivo</a></li>
                     <li><a href="#azioni">Azioni</a></li>
                     <li><a href="#numeri">Numeri</a></li>
                 </ul>
             </nav>
         </div>
 
-        <h1>Granarolo e la sostenibilità della filiera lattiero-casearia</h1>
-        <p>Azioni 2024 e numeri chiave dal report di sostenibilità</p>
+        <div class="hero">
+            <span class="tag">Project Work · Sostenibilità</span>
 
-        <!--link al PDF, così non si perde tempo a cercarlo-->
-        <a href="report/report-sostenibilita-granarolo.pdf" download>
-            Scarica il report (PDF)
-        </a>
+            <h1>Granarolo e la sostenibilità della filiera lattiero-casearia</h1>
+
+            <p>
+                Una pagina di sintesi dedicata alle principali azioni ambientali, sociali e produttive
+                realizzate da Granarolo per rendere più sostenibile la propria filiera.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="report/report-sostenibilita-granarolo.pdf" download class="btn btn-primary">
+                    Scarica il report PDF
+                </a>
+
+                <a href="#azioni" class="btn btn-secondary">
+                    Vedi le azioni
+                </a>
+            </div>
+        </div>
     </header>
 
-    <!--due righe giusto per dare contesto-->
-    <section id="chi-siamo">
-        <h2>Chi siamo</h2>
-        <p>
-            Granarolo è un gruppo cooperativo italiano attivo nel settore lattiero-caseario, impegnato in una filiera sostenibile che valorizza il territorio e la qualità del latte.
-        </p>
-    </section>
+    <main>
 
-    <!--qui ho messo le 5 azioni principali in formato card-->
-    <section id="azioni">
-        <h2>Azioni</h2>
-
-        <div class="azioni-grid">
-            <div>
-                <h3>Benessere animale</h3>
-                <p>
-                    Riduzione dell'uso di farmaci veterinari e miglioramento delle condizioni dell'allevamento
-                </p>
+        <section id="chi-siamo" class="section-card">
+            <div class="section-intro">
+                <span class="section-label">Contesto</span>
+                <h2>Chi siamo</h2>
             </div>
 
-            <div>
-                <h3>Nutrizione animale sostenibile</h3>
-                <p>
-                    Interventi sull'alimentazione per ridurre l'impatto ambientale della produzione di latte
-                </p>
+            <p>
+                Granarolo è un gruppo cooperativo italiano attivo nel settore lattiero-caseario.
+                La sua attività si basa su una filiera che coinvolge allevamenti, produzione,
+                trasformazione e distribuzione, con attenzione alla qualità del latte, al territorio
+                e alla riduzione dell’impatto ambientale.
+            </p>
+        </section>
+
+        <section id="obiettivo" class="section-card highlight-section">
+            <div class="section-intro">
+                <span class="section-label">Finalità</span>
+                <h2>Obiettivo del progetto</h2>
             </div>
 
-            <div>
-                <h3>Pratiche agronomiche</h3>
-                <p>
-                    Ottimizzazione delle pratiche agricole per favorire la cattura della CO₂
-                </p>
+            <p>
+                L’obiettivo di questa pagina è presentare in modo semplice e immediato alcune iniziative
+                di sostenibilità collegate alla filiera lattiero-casearia, evidenziando le azioni più
+                importanti e alcuni dati significativi ricavati dal report di sostenibilità.
+            </p>
+        </section>
+
+        <section id="azioni" class="section-card">
+            <div class="section-intro">
+                <span class="section-label">Interventi</span>
+                <h2>Azioni principali</h2>
             </div>
 
-            <div>
-                <h3>Riduzione dell'impatto ambientale della produzione di latte</h3>
-                <p>
-                    Monitoraggio dell’impatto ambientale negli allevamenti e interventi mirati per ridurre emissioni e consumi legati alla produzione di latte.
-                </p>
+            <div class="azioni-grid">
+                <article>
+                    <span class="card-number">01</span>
+                    <h3>Benessere animale</h3>
+                    <p>
+                        Miglioramento delle condizioni degli allevamenti e riduzione dell’uso di farmaci
+                        veterinari, con attenzione alla salute degli animali e alla qualità della produzione.
+                    </p>
+                </article>
+
+                <article>
+                    <span class="card-number">02</span>
+                    <h3>Nutrizione animale sostenibile</h3>
+                    <p>
+                        Interventi sull’alimentazione degli animali per diminuire l’impatto ambientale
+                        della produzione di latte e rendere la filiera più efficiente.
+                    </p>
+                </article>
+
+                <article>
+                    <span class="card-number">03</span>
+                    <h3>Pratiche agronomiche</h3>
+                    <p>
+                        Ottimizzazione delle pratiche agricole e gestione più attenta del suolo,
+                        anche con l’obiettivo di favorire la cattura della CO₂.
+                    </p>
+                </article>
+
+                <article>
+                    <span class="card-number">04</span>
+                    <h3>Riduzione dell’impatto ambientale</h3>
+                    <p>
+                        Monitoraggio degli allevamenti e interventi mirati per ridurre emissioni,
+                        consumi energetici e impatto collegato alla produzione di latte.
+                    </p>
+                </article>
+
+                <article>
+                    <span class="card-number">05</span>
+                    <h3>Progetto biometano</h3>
+                    <p>
+                        Sviluppo della filiera del biometano e utilizzo di energia rinnovabile
+                        per contribuire alla riduzione delle emissioni complessive.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section id="numeri" class="section-card">
+            <div class="section-intro">
+                <span class="section-label">Dati</span>
+                <h2>Numeri chiave</h2>
             </div>
 
-            <div>
-                <h3>Progetto biometano</h3>
-                <p>
-                    Sviluppo della filiera del biometano ed energia rinnovabile per ridurre le emissioni
-                </p>
-            </div>
-        </div>
-    </section>
+            <div class="numeri-grid">
+                <article>
+                    <h3>-60.000 t</h3>
+                    <p>CO₂ eq/anno di riduzione stimata grazie al progetto biometano.</p>
+                </article>
 
-    <!--tre dati così si capisce subito quanto-->
-    <section id="numeri">
-        <h2>Numeri chiave</h2>
+                <article>
+                    <h3>-30%</h3>
+                    <p>Obiettivo di riduzione delle emissioni lungo la filiera entro il 2030.</p>
+                </article>
 
-        <div class="numeri-grid">
-            <div>
-                <h3>-60.000 t CO₂ eq/anno</h3>
-                <p>Riduzione stimata grazie al progetto biometano.</p>
+                <article>
+                    <h3>80+</h3>
+                    <p>Allevamenti monitorati con attività di misurazione e miglioramento continuo.</p>
+                </article>
             </div>
 
-            <div>
-                <h3>-30% entro il 2030</h3>
-                <p>Obiettivo di riduzione delle emissioni lungo la filiera.</p>
-            </div>
+            <p class="fonte">
+                Fonte: Report di sostenibilità Granarolo - Summary 2024.
+            </p>
 
-            <div>
-                <h3>80+ allevamenti monitorati</h3>
-                <p>Misurazioni e attività di guida per ridurre l'impatto nel tempo</p>
-            </div>
-        </div>
+            <a href="report/report-sostenibilita-granarolo.pdf" download class="btn btn-primary">
+                Scarica il report PDF
+            </a>
+        </section>
 
-        <p><small>Fonte: Report di sostenibilità Granarolo (Summary 2024)</small></p>
+    </main>
 
-        <!--lo rimetto anche qui-->
-        <a href="report/report-sostenibilita-granarolo.pdf" download>
-            Scarica il report (PDF)
-        </a>
-    </section>
-
-    <!--chiusura della pagina-->
     <footer>
-        <p>Pagina realizzata per Project Work - CdsInformatica per le aziende digitali.</p>
-        <a href="#">Torna su</a>
+        <p>Pagina realizzata per Project Work - Cds Informatica per le aziende digitali.</p>
+        <a href="#top">Torna su</a>
     </footer>
 
 </body>
 </html>
-
