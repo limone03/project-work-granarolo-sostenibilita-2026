@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Granarolo e la sostenibilità della filiera lattiero-casearia</title>
-    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="stylesheet" href="styles.css?v=5">
 </head>
 
 <body>
@@ -84,50 +84,97 @@
             </div>
 
             <div class="azioni-grid">
-                <article>
+
+                <article class="azione-card">
                     <span class="card-number">01</span>
                     <h3>Benessere animale</h3>
+
                     <p>
                         Miglioramento delle condizioni degli allevamenti e riduzione dell’uso di farmaci
                         veterinari, con attenzione alla salute degli animali e alla qualità della produzione.
                     </p>
+
+                    <button type="button" class="scopri-btn">Scopri di più</button>
+
+                    <p class="azione-extra">
+                        Questa azione valorizza il ruolo degli allevamenti nella filiera lattiero-casearia.
+                        Il benessere animale contribuisce non solo alla qualità del latte, ma anche a una
+                        gestione più responsabile e sostenibile dell’intero processo produttivo.
+                    </p>
                 </article>
 
-                <article>
+                <article class="azione-card">
                     <span class="card-number">02</span>
                     <h3>Nutrizione animale sostenibile</h3>
+
                     <p>
                         Interventi sull’alimentazione degli animali per diminuire l’impatto ambientale
                         della produzione di latte e rendere la filiera più efficiente.
                     </p>
+
+                    <button type="button" class="scopri-btn">Scopri di più</button>
+
+                    <p class="azione-extra">
+                        L’alimentazione degli animali rappresenta un elemento importante per ridurre
+                        l’impatto ambientale degli allevamenti. Una nutrizione più controllata permette
+                        di migliorare l’efficienza produttiva e limitare gli sprechi.
+                    </p>
                 </article>
 
-                <article>
+                <article class="azione-card">
                     <span class="card-number">03</span>
                     <h3>Pratiche agronomiche</h3>
+
                     <p>
                         Ottimizzazione delle pratiche agricole e gestione più attenta del suolo,
                         anche con l’obiettivo di favorire la cattura della CO₂.
                     </p>
+
+                    <button type="button" class="scopri-btn">Scopri di più</button>
+
+                    <p class="azione-extra">
+                        Le pratiche agronomiche sostenibili aiutano a utilizzare meglio le risorse naturali,
+                        proteggere il suolo e rendere più equilibrato il rapporto tra produzione agricola,
+                        allevamenti e ambiente.
+                    </p>
                 </article>
 
-                <article>
+                <article class="azione-card">
                     <span class="card-number">04</span>
                     <h3>Riduzione dell’impatto ambientale</h3>
+
                     <p>
                         Monitoraggio degli allevamenti e interventi mirati per ridurre emissioni,
                         consumi energetici e impatto collegato alla produzione di latte.
                     </p>
+
+                    <button type="button" class="scopri-btn">Scopri di più</button>
+
+                    <p class="azione-extra">
+                        Il monitoraggio consente di individuare le aree in cui intervenire con maggiore
+                        precisione. In questo modo la sostenibilità non resta un obiettivo generico, ma
+                        diventa un percorso misurabile e controllabile nel tempo.
+                    </p>
                 </article>
 
-                <article>
+                <article class="azione-card">
                     <span class="card-number">05</span>
                     <h3>Progetto biometano</h3>
+
                     <p>
                         Sviluppo della filiera del biometano e utilizzo di energia rinnovabile
                         per contribuire alla riduzione delle emissioni complessive.
                     </p>
+
+                    <button type="button" class="scopri-btn">Scopri di più</button>
+
+                    <p class="azione-extra">
+                        Il progetto biometano permette di trasformare alcuni scarti della filiera in una
+                        risorsa energetica. Questa scelta favorisce l’economia circolare e contribuisce
+                        alla riduzione delle emissioni legate alla produzione.
+                    </p>
                 </article>
+
             </div>
         </section>
 
@@ -138,21 +185,21 @@
             </div>
 
             <div class="numeri-grid">
-                <article>
+                <article class="numero-card">
                     <h3>
                         <span class="counter" data-target="60000" data-prefix="-" data-suffix=" t">-60.000 t</span>
                     </h3>
                     <p>CO₂ eq/anno di riduzione stimata grazie al progetto biometano.</p>
                 </article>
 
-                <article>
+                <article class="numero-card">
                     <h3>
                         <span class="counter" data-target="30" data-prefix="-" data-suffix="%">-30%</span>
                     </h3>
                     <p>Obiettivo di riduzione delle emissioni lungo la filiera entro il 2030.</p>
                 </article>
 
-                <article>
+                <article class="numero-card">
                     <h3>
                         <span class="counter" data-target="80" data-prefix="" data-suffix="+">80+</span>
                     </h3>
@@ -169,9 +216,16 @@
                 ma l’intera filiera: dagli allevamenti fino alla riduzione delle emissioni.
             </p>
 
-            <a href="report/report-sostenibilita-granarolo.pdf" download class="btn btn-primary">
-                Scarica il report PDF
-            </a>
+            <div class="report-box">
+                <p>
+                    Per approfondire i dati e le iniziative descritte nella pagina è possibile consultare
+                    il report completo in formato PDF.
+                </p>
+
+                <a href="report/report-sostenibilita-granarolo.pdf" download class="btn btn-primary pdf-button">
+                    Scarica il report PDF
+                </a>
+            </div>
         </section>
 
     </main>
@@ -184,7 +238,7 @@
 
     <a href="#top" class="back-to-top" id="backToTop">↑</a>
 
-    <script src="script.js?v=2"></script>
+    <script src="script.js?v=3"></script>
 
 </body>
 </html>
