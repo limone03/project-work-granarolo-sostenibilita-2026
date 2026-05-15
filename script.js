@@ -51,6 +51,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    /* Card azioni - apertura contenuto extra */
+    const pulsantiScopri = document.querySelectorAll(".scopri-btn");
+
+    pulsantiScopri.forEach(function (pulsante) {
+        pulsante.addEventListener("click", function () {
+            const card = pulsante.closest(".azione-card");
+
+            if (!card) return;
+
+            card.classList.toggle("aperta");
+
+            if (card.classList.contains("aperta")) {
+                pulsante.textContent = "Mostra meno";
+            } else {
+                pulsante.textContent = "Scopri di più";
+            }
+        });
+    });
+
+
     /* Funzione per animare un singolo contatore */
     function animaContatore(contatore) {
         const valoreFinale = parseInt(contatore.getAttribute("data-target"));
