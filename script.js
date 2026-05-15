@@ -55,17 +55,31 @@ document.addEventListener("DOMContentLoaded", function () {
     const pulsantiScopri = document.querySelectorAll(".scopri-btn");
 
     pulsantiScopri.forEach(function (pulsante) {
-        pulsante.addEventListener("click", function () {
+        pulsante.addEventListener("click", function (event) {
+            event.preventDefault();
+
             const card = pulsante.closest(".azione-card");
 
-            if (!card) return;
+            if (!card) {
+                return;
+            }
 
             card.classList.toggle("aperta");
 
+            const contenutoExtra = card.querySelector(".azione-extra");
+
             if (card.classList.contains("aperta")) {
                 pulsante.textContent = "Mostra meno";
+
+                if (contenutoExtra) {
+                    contenutoExtra.style.display = "block";
+                }
             } else {
                 pulsante.textContent = "Scopri di più";
+
+                if (contenutoExtra) {
+                    contenutoExtra.style.display = "none";
+                }
             }
         });
     });
@@ -107,7 +121,9 @@ document.addEventListener("DOMContentLoaded", function () {
     cardNumeri.forEach(function (card) {
         const contatore = card.querySelector(".counter");
 
-        if (!contatore) return;
+        if (!contatore) {
+            return;
+        }
 
         card.addEventListener("mouseenter", function () {
             animaContatore(contatore);
