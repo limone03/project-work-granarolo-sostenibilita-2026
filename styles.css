@@ -245,6 +245,41 @@ header p {
 }
 
 /* =========================
+   BOX REPORT PDF
+   ========================= */
+
+.report-box {
+  margin-top: 22px;
+  padding: 22px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.70);
+  border: 1px solid rgba(27, 127, 90, 0.14);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+}
+
+.report-box p {
+  margin: 0 0 16px;
+  color: #3c5148;
+  font-size: 16px;
+}
+
+.pdf-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.pdf-button::after {
+  content: "↓";
+  display: inline-block;
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+}
+
+.pdf-button:hover::after {
+  transform: translateY(3px);
+}
+
+/* =========================
    SEZIONI
    ========================= */
 
@@ -352,6 +387,56 @@ h2::after {
   color: #52665d;
 }
 
+/* Interazione card azioni - Scopri di più */
+
+.azione-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.scopri-btn {
+  align-self: flex-start;
+  margin-top: 16px;
+  padding: 9px 15px;
+  border: none;
+  border-radius: 999px;
+  background: #e4f4ec;
+  color: #1b7f5a;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.scopri-btn:hover {
+  background: #1b7f5a;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(27, 127, 90, 0.22);
+}
+
+.azione-extra {
+  display: none;
+  margin-top: 14px !important;
+  padding-top: 14px;
+  border-top: 1px solid rgba(27, 127, 90, 0.15);
+  color: #3c5148 !important;
+  font-size: 15px;
+}
+
+.azione-card.aperta .azione-extra {
+  display: block;
+}
+
+.azione-card.aperta {
+  border-color: rgba(27, 127, 90, 0.32);
+  box-shadow: 0 16px 34px rgba(27, 127, 90, 0.14);
+}
+
 /* =========================
    NUMERI CHIAVE
    ========================= */
@@ -372,15 +457,25 @@ h2::after {
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.07);
   cursor: pointer;
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
 }
 
 .numeri-grid article:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
-  border-color: rgba(27, 127, 90, 0.28);
+  transform: translateY(-8px);
+  background: #f1faf5;
+  box-shadow: 0 16px 34px rgba(27, 127, 90, 0.16);
+  border-color: rgba(27, 127, 90, 0.32);
+}
+
+.numeri-grid article:hover h3 {
+  color: #14664a;
+}
+
+.numeri-grid article:hover p {
+  color: #34483f;
 }
 
 .numeri-grid h3 {
@@ -508,6 +603,15 @@ footer a:hover {
   .btn {
     width: 100%;
     text-align: center;
+  }
+
+  .scopri-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .report-box {
+    padding: 18px;
   }
 
   .progress-bar {
