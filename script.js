@@ -125,12 +125,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 20);
   }
 
-  /* Numeri animati al click/tap */
+  /* Numeri animati: hover (desktop) + click/tap (mobile) */
   const cardNumeri = document.querySelectorAll(".numeri-grid article");
 
   cardNumeri.forEach(function (card) {
     const contatore = card.querySelector(".counter");
     if (!contatore) return;
+
+    card.addEventListener("mouseenter", function () {
+      animaContatore(contatore);
+    });
 
     card.addEventListener("click", function () {
       animaContatore(contatore);
@@ -140,5 +144,27 @@ document.addEventListener("DOMContentLoaded", function () {
       animaContatore(contatore);
     }, { passive: true });
   });
+
+  /* Partenza automatica quando si arriva alla sezione "Numeri" (una volta sola) */
+  const sezioneNumeri = document.getElementById("numeri");
+  let contatoriPartiti = false;
+
+  if (sezioneNumeri && "IntersectionObserver" in window) {
+    const obsNumeri = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !contatoriPartiti) {
+          contatoriPartiti = true;
+
+          document.querySelectorAll(".numeri-grid .counter").forEach((c) => {
+            animaContatore(c);
+          });
+
+          obsNumeri.disconnect();
+        }
+      });
+    }, { threshold: 0.35 });
+
+    obsNumeri.observe(sezioneNumeri);
+  }
 
 });
