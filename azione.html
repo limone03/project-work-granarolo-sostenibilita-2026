@@ -1,1 +1,68 @@
 
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dettaglio azione</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <div class="progress-bar" id="progressBar"></div>
+
+  <header id="top">
+    <div class="header-top">
+      <img src="img/granarolo_logo.jpg" alt="Logo Granarolo" class="logo">
+
+      <a class="back-home" href="index.html">← Torna alla pagina principale</a>
+    </div>
+
+    <div class="hero animate-on-scroll">
+      <span class="tag">Azione · Dettaglio</span>
+
+      <h1 id="titoloAzione">Caricamento…</h1>
+
+      <p id="sottotitoloAzione">
+        <!-- verrà riempito da azione.js -->
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section-card animate-on-scroll">
+      <div class="azione-page-grid">
+
+        <div class="azione-page-img">
+          <img id="imgAzione" src="" alt="">
+        </div>
+
+        <div class="azione-page-text">
+          <h2 id="h2Azione"></h2>
+          <p id="testoAzione"></p>
+
+          <div class="azione-page-box">
+            <p id="datoAzione"></p>
+          </div>
+
+          <a class="btn btn-primary pdf-button" href="report/report-sostenibilita-granarolo.pdf" download>
+            Scarica il report PDF
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Project Work – Granarolo e sostenibilità</strong></p>
+    <p>Approfondimento azione (pagina dedicata).</p>
+    <a href="#top">Torna su</a>
+  </footer>
+
+  <a href="#top" class="back-to-top" id="backToTop" aria-label="Torna su">↑</a>
+
+  <script src="azione.js"></script>
+</body>
+</html>
