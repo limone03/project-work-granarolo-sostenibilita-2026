@@ -1,286 +1,184 @@
-
-Copia
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Granarolo · Sostenibilità della filiera</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>Granarolo e la sostenibilità della filiera lattiero-casearia</title>
   <link rel="stylesheet" href="styles.css">
 </head>
- 
+
 <body>
- 
+
   <div class="progress-bar" id="progressBar"></div>
- 
-  <!-- Sidebar -->
-  <nav class="side-nav" id="sideNav" aria-label="Navigazione">
-    <button class="menu-close" id="menuClose" aria-label="Chiudi menu">✕</button>
-    <div class="sidenav-logo">
-      <img src="img/granarolo_logo.jpg" alt="Logo Granarolo">
-    </div>
-    <ul>
-      <li><a href="#chi-siamo"><span class="nav-num">01</span>Chi siamo</a></li>
-      <li><a href="#obiettivo"><span class="nav-num">02</span>Obiettivo</a></li>
-      <li><a href="#azioni"><span class="nav-num">03</span>Azioni</a></li>
-      <li><a href="#numeri"><span class="nav-num">04</span>Numeri</a></li>
-      <li><a href="report/report-sostenibilita-granarolo.pdf" download class="nav-download">⬇ Scarica PDF</a></li>
-    </ul>
-  </nav>
-  <div class="overlay" id="menuOverlay"></div>
- 
-  <!-- Sticky header bar -->
-  <div class="sticky-bar" id="stickyBar">
-    <img src="img/granarolo_logo.jpg" alt="Logo Granarolo" class="sticky-logo">
-    <button class="menu-toggle" id="menuToggle" aria-label="Apri menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
- 
+
   <header id="top">
     <div class="header-top">
       <img src="img/granarolo_logo.jpg" alt="Logo Granarolo" class="logo">
-      <button class="menu-toggle header-toggle" id="menuToggleHeader" aria-label="Apri menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+
+      <!-- Bottone hamburger -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Apri menu" aria-expanded="false">☰</button>
+
+      <!-- Sidebar -->
+      <nav class="side-nav" id="sideNav" aria-label="Navigazione">
+        <button class="menu-close" id="menuClose" aria-label="Chiudi menu">✕</button>
+        <ul>
+          <li><a href="#chi-siamo">Chi siamo</a></li>
+          <li><a href="#obiettivo">Obiettivo</a></li>
+          <li><a href="#azioni">Azioni</a></li>
+          <li><a href="#numeri">Numeri</a></li>
+          <li><a href="report/report-sostenibilita-granarolo.pdf" download>Scarica PDF</a></li>
+        </ul>
+      </nav>
+
+      <!-- Overlay -->
+      <div class="overlay" id="menuOverlay"></div>
     </div>
- 
-    <div class="hero">
-      <span class="tag animate-stagger">Project Work · Sostenibilità</span>
-      <h1 class="animate-stagger">Granarolo e la<br><em>sostenibilità</em><br>della filiera</h1>
-      <p class="animate-stagger">
-        Una sintesi delle principali azioni e dei numeri chiave del report 2024,
-        con accesso diretto al documento ufficiale.
+
+    <div class="hero animate-on-scroll">
+      <span class="tag">Project Work · Sostenibilità</span>
+
+      <h1>Granarolo e la sostenibilità della filiera lattiero-casearia</h1>
+
+      <p>
+        Una pagina di sintesi dedicata alle principali azioni e ai numeri chiave del report di sostenibilità (2024),
+        con accesso diretto al PDF ufficiale.
       </p>
-      <div class="hero-buttons animate-stagger">
-        <a href="report/report-sostenibilita-granarolo.pdf" download class="btn btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+
+      <div class="hero-buttons">
+        <a href="report/report-sostenibilita-granarolo.pdf" download class="btn btn-primary pdf-button">
           Scarica il report PDF
         </a>
-        <a href="#azioni" class="btn btn-ghost">Esplora le azioni →</a>
-      </div>
- 
-      <!-- Leaf decorative -->
-      <div class="hero-deco" aria-hidden="true">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50,150 Q80,40 160,30 Q120,110 50,150Z" fill="rgba(27,127,90,0.08)" stroke="rgba(27,127,90,0.18)" stroke-width="1.5"/>
-          <path d="M55,145 L150,45" stroke="rgba(27,127,90,0.15)" stroke-width="1"/>
-          <circle cx="150" cy="45" r="3" fill="rgba(27,127,90,0.2)"/>
-        </svg>
-      </div>
-    </div>
- 
-    <!-- Pillole stats hero -->
-    <div class="hero-stats">
-      <div class="stat-pill">
-        <span class="stat-value">–60.000 t</span>
-        <span class="stat-label">CO₂ eq/anno</span>
-      </div>
-      <div class="stat-divider" aria-hidden="true"></div>
-      <div class="stat-pill">
-        <span class="stat-value">–30%</span>
-        <span class="stat-label">emissioni entro 2030</span>
-      </div>
-      <div class="stat-divider" aria-hidden="true"></div>
-      <div class="stat-pill">
-        <span class="stat-value">80+</span>
-        <span class="stat-label">allevamenti monitorati</span>
+        <a href="#azioni" class="btn btn-secondary">Vedi le azioni</a>
       </div>
     </div>
   </header>
- 
+
   <main class="container">
- 
-    <!-- Chi siamo -->
+
     <section id="chi-siamo" class="section-card animate-on-scroll">
-      <div class="card-inner">
-        <div class="section-intro">
-          <span class="section-label">Contesto</span>
-          <h2>Chi siamo</h2>
-        </div>
-        <div class="two-col">
-          <div>
-            <p>
-              Granarolo è un gruppo cooperativo italiano attivo nella filiera lattiero-casearia.
-              La sostenibilità in questo ambito riguarda anche attività "a monte" tipiche del settore primario:
-              allevamenti, nutrizione animale e pratiche agronomiche collegate alla produzione di latte.
-            </p>
-          </div>
-          <div class="highlight-box">
-            <div class="hb-icon" aria-hidden="true">🌱</div>
-            <p>Una filiera che parte dalla terra e arriva alla tavola, con responsabilità verso l'ambiente e le comunità.</p>
-          </div>
-        </div>
+      <div class="section-intro">
+        <span class="section-label">Contesto</span>
+        <h2>Chi siamo</h2>
       </div>
-      <div class="section-img-strip" aria-hidden="true">
-        <img src="img/mucche.jpg" alt="Allevamento bovino" onerror="this.style.display='none'">
-      </div>
+      <p class="highlight-section">
+        Granarolo è un gruppo cooperativo italiano attivo nella filiera lattiero-casearia. La sostenibilità in questo ambito
+        riguarda anche attività “a monte” tipiche del settore primario, come allevamenti, nutrizione animale e pratiche agronomiche
+        collegate alla produzione di latte.
+      </p>
     </section>
- 
-    <!-- Obiettivo -->
+
     <section id="obiettivo" class="section-card animate-on-scroll">
-      <div class="card-inner">
-        <div class="section-intro">
-          <span class="section-label">Scopo</span>
-          <h2>Obiettivo</h2>
-        </div>
-        <p>
-          Sintetizzare le azioni principali e alcuni numeri chiave tratti dal Summary 2024,
-          mantenendo sempre il collegamento al report ufficiale tramite download PDF.
-        </p>
-        <div class="report-box">
-          <div class="rb-left">
-            <p class="rb-title">Report completo disponibile</p>
-            <p class="rb-sub">Tutti i dati, le iniziative e gli obiettivi di lungo periodo.</p>
-          </div>
-          <a href="report/report-sostenibilita-granarolo.pdf" download class="btn btn-primary">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Scarica PDF
-          </a>
-        </div>
+      <div class="section-intro">
+        <span class="section-label">Scopo</span>
+        <h2>Obiettivo</h2>
+      </div>
+      <p>
+        L’obiettivo è sintetizzare le azioni principali e alcuni numeri chiave tratti dal Summary 2024,
+        mantenendo sempre il collegamento al report ufficiale tramite download PDF.
+      </p>
+
+      <div class="report-box">
+        <p>Per approfondire i dati e le iniziative descritte nella pagina è possibile consultare il report completo in formato PDF.</p>
+        <a href="report/report-sostenibilita-granarolo.pdf" download class="btn btn-primary pdf-button">
+          Scarica il report PDF
+        </a>
       </div>
     </section>
- 
-    <!-- Azioni -->
+
     <section id="azioni" class="section-card animate-on-scroll">
-      <div class="card-inner">
-        <div class="section-intro">
-          <span class="section-label">Interventi</span>
-          <h2>Azioni principali</h2>
-        </div>
- 
-        <div class="azioni-grid">
- 
-          <article class="azione-card">
-            <div class="ac-header">
-              <span class="card-number">01</span>
-              <span class="ac-icon" aria-hidden="true">🐄</span>
-            </div>
-            <h3>Benessere animale</h3>
-            <p>Miglioramento delle condizioni degli allevamenti e riduzione dell'uso di farmaci veterinari.</p>
-            <button type="button" class="scopri-btn" aria-expanded="false">Scopri di più <span class="arrow">↓</span></button>
-            <div class="azione-extra" hidden>
-              <p>Granarolo promuove standard elevati di benessere per gli animali, con audit periodici negli allevamenti partner, riduzione degli antibiotici e protocolli condivisi con veterinari e allevatori.</p>
-            </div>
-          </article>
- 
-          <article class="azione-card">
-            <div class="ac-header">
-              <span class="card-number">02</span>
-              <span class="ac-icon" aria-hidden="true">🌾</span>
-            </div>
-            <h3>Nutrizione animale sostenibile</h3>
-            <p>Interventi sull'alimentazione per ridurre l'impatto ambientale della produzione di latte.</p>
-            <button type="button" class="scopri-btn" aria-expanded="false">Scopri di più <span class="arrow">↓</span></button>
-            <div class="azione-extra" hidden>
-              <p>Le razioni alimentari vengono ottimizzate per ridurre le emissioni di metano enteriche, privilegiando ingredienti locali e a basso impatto di carbonio.</p>
-            </div>
-          </article>
- 
-          <article class="azione-card">
-            <div class="ac-header">
-              <span class="card-number">03</span>
-              <span class="ac-icon" aria-hidden="true">🌿</span>
-            </div>
-            <h3>Pratiche agronomiche</h3>
-            <p>Ottimizzazione delle pratiche agricole per favorire la cattura della CO₂.</p>
-            <button type="button" class="scopri-btn" aria-expanded="false">Scopri di più <span class="arrow">↓</span></button>
-            <div class="azione-extra" hidden>
-              <p>La gestione del suolo, la rotazione delle colture e le cover crops favoriscono il sequestro del carbonio e la salute agronomica dei terreni collegati alla filiera.</p>
-            </div>
-          </article>
- 
-          <article class="azione-card">
-            <div class="ac-header">
-              <span class="card-number">04</span>
-              <span class="ac-icon" aria-hidden="true">📊</span>
-            </div>
-            <h3>Riduzione impatto latte</h3>
-            <p>Monitoraggio negli allevamenti e interventi mirati su emissioni e consumi.</p>
-            <button type="button" class="scopri-btn" aria-expanded="false">Scopri di più <span class="arrow">↓</span></button>
-            <div class="azione-extra" hidden>
-              <p>Attraverso la Carbon Footprint per kg di latte, Granarolo misura e riduce l'impronta ambientale di ciascun allevamento con piani di miglioramento personalizzati.</p>
-            </div>
-          </article>
- 
-          <article class="azione-card azione-wide">
-            <div class="ac-header">
-              <span class="card-number">05</span>
-              <span class="ac-icon" aria-hidden="true">⚡</span>
-            </div>
-            <h3>Progetto biometano</h3>
-            <p>Sviluppo della filiera del biometano ed energia rinnovabile per contribuire alla riduzione delle emissioni.</p>
-            <button type="button" class="scopri-btn" aria-expanded="false">Scopri di più <span class="arrow">↓</span></button>
-            <div class="azione-extra" hidden>
-              <p>Il digestato degli allevamenti viene trasformato in biometano, producendo energia rinnovabile e abbattendo le emissioni di CO₂ equivalente per circa 60.000 tonnellate l'anno.</p>
-            </div>
-          </article>
- 
-        </div>
+      <div class="section-intro">
+        <span class="section-label">Interventi</span>
+        <h2>Azioni principali</h2>
+      </div>
+
+      <div class="azioni-grid">
+
+        <article class="azione-card">
+          <span class="card-number">01</span>
+          <h3>Benessere animale</h3>
+          <p>Miglioramento delle condizioni degli allevamenti e riduzione dell’uso di farmaci veterinari.</p>
+          <button type="button" class="scopri-btn">Scopri di più</button>
+          <p class="azione-extra">Approfondimento breve legato al report.</p>
+        </article>
+
+        <article class="azione-card">
+          <span class="card-number">02</span>
+          <h3>Nutrizione animale sostenibile</h3>
+          <p>Interventi sull’alimentazione per ridurre l’impatto ambientale della produzione di latte.</p>
+          <button type="button" class="scopri-btn">Scopri di più</button>
+          <p class="azione-extra">Approfondimento breve legato al report.</p>
+        </article>
+
+        <article class="azione-card">
+          <span class="card-number">03</span>
+          <h3>Pratiche agronomiche</h3>
+          <p>Ottimizzazione delle pratiche agricole per favorire la cattura della CO₂.</p>
+          <button type="button" class="scopri-btn">Scopri di più</button>
+          <p class="azione-extra">Approfondimento breve legato al report.</p>
+        </article>
+
+        <article class="azione-card">
+          <span class="card-number">04</span>
+          <h3>Riduzione dell’impatto della produzione di latte</h3>
+          <p>Monitoraggio negli allevamenti e interventi mirati su emissioni e consumi.</p>
+          <button type="button" class="scopri-btn">Scopri di più</button>
+          <p class="azione-extra">Approfondimento breve legato al report.</p>
+        </article>
+
+        <article class="azione-card">
+          <span class="card-number">05</span>
+          <h3>Progetto biometano</h3>
+          <p>Sviluppo della filiera del biometano ed energia rinnovabile per contribuire alla riduzione delle emissioni.</p>
+          <button type="button" class="scopri-btn">Scopri di più</button>
+          <p class="azione-extra">Approfondimento breve legato al report.</p>
+        </article>
+
       </div>
     </section>
- 
-    <!-- Numeri -->
+
     <section id="numeri" class="section-card animate-on-scroll">
-      <div class="card-inner">
-        <div class="section-intro">
-          <span class="section-label">Dati</span>
-          <h2>Numeri chiave</h2>
-        </div>
- 
-        <div class="numeri-grid">
-          <article class="numero-card" data-target="60000" data-prefix="−" data-suffix=" t CO₂">
-            <div class="nc-ring" aria-hidden="true"></div>
-            <span class="nc-value">−60.000 t CO₂</span>
-            <p>eq/anno di riduzione stimata grazie al progetto biometano.</p>
-            <button class="anim-btn" aria-label="Anima il numero">↺</button>
-          </article>
- 
-          <article class="numero-card" data-target="30" data-prefix="−" data-suffix="%">
-            <div class="nc-ring" aria-hidden="true"></div>
-            <span class="nc-value">−30%</span>
-            <p>Obiettivo di riduzione delle emissioni lungo la filiera entro il 2030.</p>
-            <button class="anim-btn" aria-label="Anima il numero">↺</button>
-          </article>
- 
-          <article class="numero-card" data-target="80" data-prefix="" data-suffix="+">
-            <div class="nc-ring" aria-hidden="true"></div>
-            <span class="nc-value">80+</span>
-            <p>Allevamenti monitorati con attività di misurazione e miglioramento continuo.</p>
-            <button class="anim-btn" aria-label="Anima il numero">↺</button>
-          </article>
-        </div>
- 
-        <p class="fonte">Fonte: Report di sostenibilità Granarolo – Summary 2024.</p>
- 
-        <div class="report-box">
-          <div class="rb-left">
-            <p class="rb-title">Vuoi approfondire?</p>
-            <p class="rb-sub">Scarica il report completo in formato PDF.</p>
-          </div>
-          <a href="report/report-sostenibilita-granarolo.pdf" download class="btn btn-primary">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Scarica PDF
-          </a>
-        </div>
+      <div class="section-intro">
+        <span class="section-label">Dati</span>
+        <h2>Numeri chiave</h2>
+      </div>
+
+      <div class="numeri-grid">
+        <article>
+          <h3><span class="counter" data-target="60000" data-prefix="-" data-suffix=" t">-60.000 t</span></h3>
+          <p>CO₂ eq/anno di riduzione stimata grazie al progetto biometano.</p>
+        </article>
+
+        <article>
+          <h3><span class="counter" data-target="30" data-prefix="-" data-suffix="%">-30%</span></h3>
+          <p>Obiettivo di riduzione delle emissioni lungo la filiera entro il 2030.</p>
+        </article>
+
+        <article>
+          <h3><span class="counter" data-target="80" data-prefix="" data-suffix="+">80+</span></h3>
+          <p>Allevamenti monitorati con attività di misurazione e miglioramento continuo.</p>
+        </article>
+      </div>
+
+      <p class="fonte">Fonte: Report di sostenibilità Granarolo – Summary 2024.</p>
+
+      <div class="report-box">
+        <p>Per approfondire: download del report completo in PDF.</p>
+        <a href="report/report-sostenibilita-granarolo.pdf" download class="btn btn-primary pdf-button">
+          Scarica il report PDF
+        </a>
       </div>
     </section>
- 
+
   </main>
- 
+
   <footer>
-    <img src="img/granarolo_logo.jpg" alt="Logo Granarolo" class="footer-logo">
-    <p><strong>Project Work – Granarolo e Sostenibilità</strong></p>
+    <p><strong>Project Work – Granarolo e sostenibilità</strong></p>
     <p>Pagina realizzata per il progetto universitario.</p>
-    <a href="#top" class="footer-top">↑ Torna su</a>
+    <a href="#top">Torna su</a>
   </footer>
- 
+
   <a href="#top" class="back-to-top" id="backToTop" aria-label="Torna su">↑</a>
- 
+
   <script src="script.js"></script>
 </body>
 </html>
