@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Granarolo e la sostenibilità della filiera lattiero-casearia</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=5">
 </head>
 
 <body>
@@ -15,7 +15,12 @@
         <div class="header-top">
             <img src="img/granarolo_logo.jpg" alt="Logo Granarolo" class="logo">
 
-            <nav aria-label="Navigazione principale">
+            <!-- Bottone hamburger -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Apri menu" aria-expanded="false">☰</button>
+
+            <!-- Sidebar -->
+            <nav class="side-nav" id="sideNav" aria-label="Navigazione">
+                <button class="menu-close" id="menuClose" aria-label="Chiudi menu">✕</button>
                 <ul>
                     <li><a href="#chi-siamo">Chi siamo</a></li>
                     <li><a href="#obiettivo">Obiettivo</a></li>
@@ -24,9 +29,12 @@
                     <li><a href="report/report-sostenibilita-granarolo.pdf" download>Report</a></li>
                 </ul>
             </nav>
+
+            <!-- Overlay (click per chiudere) -->
+            <div class="overlay" id="menuOverlay"></div>
         </div>
 
-        <div class="hero">
+        <div class="hero animate-on-scroll">
             <span class="tag">Project Work · Sostenibilità</span>
 
             <h1>Granarolo e la sostenibilità della filiera lattiero-casearia</h1>
@@ -190,21 +198,21 @@
             </div>
 
             <div class="numeri-grid">
-                <article class="numero-card">
+                <article>
                     <h3>
                         <span class="counter" data-target="60000" data-prefix="-" data-suffix=" t">-60.000 t</span>
                     </h3>
                     <p>CO₂ eq/anno di riduzione stimata grazie al progetto biometano.</p>
                 </article>
 
-                <article class="numero-card">
+                <article>
                     <h3>
                         <span class="counter" data-target="30" data-prefix="-" data-suffix="%">-30%</span>
                     </h3>
                     <p>Obiettivo di riduzione delle emissioni lungo la filiera entro il 2030.</p>
                 </article>
 
-                <article class="numero-card">
+                <article>
                     <h3>
                         <span class="counter" data-target="80" data-prefix="" data-suffix="+">80+</span>
                     </h3>
@@ -240,8 +248,9 @@
         <a href="#top">Torna su</a>
     </footer>
 
-    <a href="#top" class="back-to-top" id="backToTop" aria-label="Torna su">↑</a>
+    <a href="#top" class="back-to-top" id="backToTop">↑</a>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=3"></script>
+
 </body>
 </html>
