@@ -566,3 +566,58 @@ footer a {
     border-radius: 16px;
   }
 }
+/* NUMERI: hover WOW (gradient + glow + barra a sinistra) */
+.numeri-grid article{
+  position: relative;
+  overflow: hidden;
+}
+
+/* barra a sinistra (nascosta) */
+.numeri-grid article::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  background: #1b7f5a;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: 0.25s ease;
+}
+
+/* leggero highlight diagonale (nascosto) */
+.numeri-grid article::after{
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.35), rgba(255,255,255,0) 55%);
+  opacity: 0;
+  transform: rotate(10deg);
+  transition: 0.25s ease;
+  pointer-events: none;
+}
+
+.numeri-grid article:hover{
+  background: linear-gradient(135deg, #1b7f5a 0%, #14664a 60%, #0f5a3f 100%);
+  border-color: rgba(27,127,90,0.55);
+  box-shadow: 0 18px 40px rgba(27,127,90,0.28);
+  transform: translateY(-8px);
+}
+
+.numeri-grid article:hover::before{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.numeri-grid article:hover::after{
+  opacity: 1;
+}
+
+.numeri-grid article:hover h3{
+  color: #ffffff;
+}
+
+.numeri-grid article:hover p{
+  color: rgba(255,255,255,0.92);
+}
