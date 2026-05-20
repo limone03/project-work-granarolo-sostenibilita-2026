@@ -650,3 +650,36 @@ footer a {
 .azioni-grid > article .scopri-btn{
   margin-top: auto;
 }
+/* =========================
+   CARD TUTTE UGUALI (Numeri + Azioni)
+   ========================= */
+
+/* le griglie devono stirare gli elementi */
+.azioni-grid,
+.numeri-grid{
+  align-items: stretch !important;
+}
+
+/* ogni card prende tutta l'altezza disponibile */
+.azioni-grid article,
+.numeri-grid article{
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* il testo "riempie" lo spazio così le altezze si pareggiano */
+.azioni-grid article p,
+.numeri-grid article p{
+  flex: 1 1 auto !important;
+}
+
+/* bottone/link sempre in basso (allineato) */
+.azioni-grid article .scopri-link,
+.azioni-grid article .scopri-btn{
+  margin-top: auto !important;
+}
+/* altezza minima uguale per i numeri */
+.numeri-grid article{
+  min-height: 190px; /* puoi alzare a 200/210 se vuoi più "corpose" */
+}
