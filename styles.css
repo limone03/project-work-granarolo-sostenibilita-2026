@@ -621,3 +621,32 @@ footer a {
 .numeri-grid article:hover p{
   color: rgba(255,255,255,0.92);
 }
+/* =========================
+   BOX SEMPRE ALLA STESSA ALTEZZA (azioni + numeri)
+   ========================= */
+
+/* assicura che gli elementi della grid si "stirino" */
+.azioni-grid,
+.numeri-grid{
+  align-items: stretch;
+}
+
+/* ogni box diventa una colonna flex e prende tutta l'altezza disponibile */
+.azioni-grid > article,
+.numeri-grid > article{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* il testo si prende lo spazio e uniforma l'altezza delle card */
+.azioni-grid > article p,
+.numeri-grid > article p{
+  flex: 1;
+}
+
+/* bottone/link sempre in basso, così tutte le card finiscono allo stesso livello */
+.azioni-grid > article .scopri-link,
+.azioni-grid > article .scopri-btn{
+  margin-top: auto;
+}
