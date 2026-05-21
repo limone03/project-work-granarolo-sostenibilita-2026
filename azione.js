@@ -151,7 +151,17 @@ document.addEventListener("DOMContentLoaded", function () {
   if (h2) h2.textContent = data.titolo;
   if (testo) testo.textContent = data.testo;
   if (dato) dato.textContent = data.dato;
-  if (img) { img.src = data.img; img.alt = data.alt; }
+  if (img) {
+    img.src = data.img;
+    img.alt = data.alt;
+  }
+
+  /* Forza visibilità immediata di tutte le sezioni animate:
+     l'IntersectionObserver può non scattare se gli elementi
+     erano vuoti al momento dell'osservazione. */
+  document.querySelectorAll(".animate-on-scroll").forEach(el => {
+    el.classList.add("visible");
+  });
 
   /* =============================================
      TEMPO DI LETTURA STIMATO
