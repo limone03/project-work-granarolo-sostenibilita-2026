@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const splashParticles = document.getElementById("splashParticles");
 
   if (splash) {
-    // Genera particelle nello splash
     if (splashParticles) {
       for (let i = 0; i < 12; i++) {
         const p = document.createElement("span");
@@ -36,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const darkToggle = document.getElementById("darkToggle");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  // Carica preferenza salvata
   if (localStorage.getItem("darkMode") === "1" || (prefersDark && localStorage.getItem("darkMode") === null)) {
     document.body.classList.add("dark");
     if (darkToggle) darkToggle.textContent = "☀️";
@@ -60,12 +58,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuOverlay = document.getElementById("menuOverlay");
 
   function openMenu() {
+    if (!sideNav || !menuOverlay || !menuToggle) return;
     sideNav.classList.add("open");
     menuOverlay.classList.add("show");
     menuToggle.setAttribute("aria-expanded", "true");
   }
 
   function closeMenu() {
+    if (!sideNav || !menuOverlay || !menuToggle) return;
     sideNav.classList.remove("open");
     menuOverlay.classList.remove("show");
     menuToggle.setAttribute("aria-expanded", "false");
@@ -77,6 +77,69 @@ document.addEventListener("DOMContentLoaded", function () {
     menuOverlay.addEventListener("click", closeMenu);
     sideNav.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
   }
+
+  /* =============================================
+     SCROLLSPY SIDEBAR (IntersectionObserver)
+     Evidenzia il link della sezione visibile
+     ============================================= */
+  (function () {
+    const sideNavEl = document.getElementById("sideNav");
+    if (!sideNavEl) return;
+
+    const links = Array.from(sideNavEl.querySelectorAll('a[href^="#"]'));
+    if (!links.length) return;
+
+    const sections = links
+      .map(a => document.querySelector(a.getAttribute("href")))
+      .filter(Boolean);
+
+    if (!sections.length) return;
+
+    let currentId = null;
+
+    function setActive(id) {
+      if (!id || currentId === id) return;
+      currentId = id;
+
+      links.forEach(a => a.classList.remove("spy-active"));
+      const activeLink = sideNavEl.querySelector(`a[href="#${CSS.escape(id)}"]`);
+      if (activeLink) activeLink.classList.add("spy-active");
+    }
+
+    // fallback (se IO non disponibile)
+    if (!("IntersectionObserver" in window)) {
+      window.addEventListener("scroll", () => {
+        const y = window.scrollY + 140;
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const s = sections[i];
+          if (s.offsetTop <= y) {
+            setActive(s.id);
+            break;
+          }
+        }
+      }, { passive: true });
+
+      setActive(sections[0].id);
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (visible && visible.target && visible.target.id) {
+        setActive(visible.target.id);
+      }
+    }, {
+      root: null,
+      threshold: [0.2, 0.35, 0.5, 0.65],
+      rootMargin: "-10% 0px -55% 0px"
+    });
+
+    sections.forEach(sec => observer.observe(sec));
+    setActive(sections[0].id);
+  })();
 
   /* =============================================
      BARRA PROGRESSO + BACK TO TOP
@@ -203,16 +266,11 @@ document.addEventListener("DOMContentLoaded", function () {
   timelineItems.forEach(item => {
     item.addEventListener("click", function () {
       const isOpen = item.classList.contains("open");
-
-      // Chiudi tutti
       timelineItems.forEach(i => i.classList.remove("open"));
-
-      // Apri questo se era chiuso
       if (!isOpen) item.classList.add("open");
     });
   });
 
-  // Apri il primo di default
   if (timelineItems.length > 0) timelineItems[0].classList.add("open");
 
   /* =============================================
@@ -229,30 +287,30 @@ document.addEventListener("DOMContentLoaded", function () {
       testo: "Qual è l'obiettivo di riduzione delle emissioni lungo la filiera entro il 2030?",
       opzioni: ["-10%", "-50%", "-30%", "-20%"],
       corretta: 2,
-      spiegazione: "L'obiettivo fissato da Granarolo è una riduzione del 30% delle emissioni lungo tutta la filiera entro il 2030."
+      spiegazione: "L'obiettivo fissato è una riduzione del 30% delle emissioni lungo tutta la filiera entro il 2030."
     },
     {
       testo: "Quanti allevamenti sono monitorati con attività di misurazione continua?",
       opzioni: ["Oltre 20", "Oltre 50", "Oltre 80", "Oltre 120"],
       corretta: 2,
-      spiegazione: "Più di 80 allevamenti partner sono coinvolti nel programma di monitoraggio e miglioramento continuo di Granarolo."
+      spiegazione: "Più di 80 allevamenti partner sono coinvolti nel programma di monitoraggio e miglioramento continuo."
     },
     {
-      testo: "Quale tra questi è uno dei 5 pilastri della strategia di sostenibilità Granarolo?",
+      testo: "Quale tra questi è uno dei pilastri della strategia di sostenibilità?",
       opzioni: ["Packaging biodegradabile", "Pratiche agronomiche", "Energia solare negli uffici", "Riduzione del personale"],
       corretta: 1,
-      spiegazione: "Le pratiche agronomiche rappresentano uno dei 5 pilastri strategici, puntando a un uso più efficiente del suolo e alla cattura della CO₂."
+      spiegazione: "Le pratiche agronomiche rappresentano uno dei pilastri strategici, puntando a uso più efficiente del suolo e cattura CO₂."
     },
     {
-      testo: "Cosa caratterizza l'approccio di Granarolo alla sostenibilità?",
+      testo: "Cosa caratterizza l'approccio alla sostenibilità?",
       opzioni: [
-        "Interventi solo a livello di packaging",
+        "Interventi solo sul packaging",
         "Certificazioni senza obiettivi misurabili",
         "Azioni concrete a monte della filiera, misurabili e verificabili",
         "Comunicazione senza dati"
       ],
       corretta: 2,
-      spiegazione: "Granarolo adotta un approccio basato su misurazioni concrete e interventi diretti negli allevamenti e nella filiera 'a monte', rendendo la sostenibilità verificabile."
+      spiegazione: "Approccio basato su misurazioni concrete e interventi diretti nella filiera a monte."
     }
   ];
 
@@ -272,54 +330,48 @@ document.addEventListener("DOMContentLoaded", function () {
   const quizRisultatoTesto = document.getElementById("quizRisultatoTesto");
 
   function mostraDomanda() {
-    if (!quizDomandaEl) return;
+    if (!quizDomandaEl || !quizOpzioniEl) return;
 
     quizRispostaData = false;
     const d = domande[quizIndex];
 
-    // Aggiorna contatore e progress
     if (quizCounterEl) quizCounterEl.textContent = `Domanda ${quizIndex + 1} di ${domande.length}`;
     if (quizProgressBarEl) quizProgressBarEl.style.width = ((quizIndex / domande.length) * 100) + "%";
 
     quizDomandaEl.textContent = d.testo;
     quizOpzioniEl.innerHTML = "";
-    quizFeedbackEl.textContent = "";
-    quizFeedbackEl.className = "quiz-feedback";
+    if (quizFeedbackEl) {
+      quizFeedbackEl.textContent = "";
+      quizFeedbackEl.className = "quiz-feedback";
+    }
     if (quizNextEl) quizNextEl.style.display = "none";
 
     d.opzioni.forEach((opzione, i) => {
       const btn = document.createElement("button");
       btn.className = "quiz-opzione";
       btn.textContent = opzione;
-      btn.setAttribute("data-index", i);
 
       btn.addEventListener("click", function () {
         if (quizRispostaData) return;
         quizRispostaData = true;
 
-        const scelta = parseInt(btn.getAttribute("data-index"));
         const corretta = d.corretta;
 
-        // Colora tutte le opzioni
         quizOpzioniEl.querySelectorAll(".quiz-opzione").forEach((b, bi) => {
           b.disabled = true;
           if (bi === corretta) b.classList.add("corretta");
-          else if (bi === scelta && scelta !== corretta) b.classList.add("sbagliata");
+          else if (bi === i && i !== corretta) b.classList.add("sbagliata");
         });
 
-        if (scelta === corretta) {
-          quizPunteggio++;
-          quizFeedbackEl.textContent = "✅ " + d.spiegazione;
-          quizFeedbackEl.classList.add("ok");
-        } else {
-          quizFeedbackEl.textContent = "❌ " + d.spiegazione;
-          quizFeedbackEl.classList.add("no");
+        const ok = (i === corretta);
+        if (ok) quizPunteggio++;
+
+        if (quizFeedbackEl) {
+          quizFeedbackEl.textContent = (ok ? "Corretto! " : "No. ") + d.spiegazione;
+          quizFeedbackEl.classList.add(ok ? "ok" : "no");
         }
 
-        if (quizNextEl) {
-          quizNextEl.style.display = "inline-block";
-          quizNextEl.textContent = quizIndex < domande.length - 1 ? "Prossima domanda →" : "Vedi risultato →";
-        }
+        if (quizNextEl) quizNextEl.style.display = "inline-block";
       });
 
       quizOpzioniEl.appendChild(btn);
@@ -327,71 +379,38 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function mostraRisultato() {
-    if (!quizRisultatoEl) return;
-
-    quizDomandaEl.style.display = "none";
-    quizOpzioniEl.style.display = "none";
-    quizFeedbackEl.style.display = "none";
+    if (quizRisultatoEl) quizRisultatoEl.style.display = "block";
     if (quizNextEl) quizNextEl.style.display = "none";
-    if (quizCounterEl) quizCounterEl.style.display = "none";
-    if (quizProgressBarEl) quizProgressBarEl.parentElement.style.display = "none";
+    if (quizDomandaEl) quizDomandaEl.textContent = "Quiz completato";
+    if (quizOpzioniEl) quizOpzioniEl.innerHTML = "";
 
-    quizRisultatoEl.style.display = "block";
+    const tot = domande.length;
+    const score = quizPunteggio;
 
-    const perc = Math.round((quizPunteggio / domande.length) * 100);
-
-    if (quizScoreCircle) {
-      quizScoreCircle.textContent = `${quizPunteggio}/${domande.length}`;
-      quizScoreCircle.style.background = perc >= 80
-        ? "linear-gradient(135deg, #1b7f5a, #14664a)"
-        : perc >= 50
-          ? "linear-gradient(135deg, #e8a020, #c47800)"
-          : "linear-gradient(135deg, #c0392b, #922b21)";
-    }
+    if (quizScoreCircle) quizScoreCircle.textContent = `${score}/${tot}`;
 
     if (quizRisultatoTitolo) {
-      quizRisultatoTitolo.textContent = perc >= 80
-        ? "Ottimo! Conosci bene la sostenibilità Granarolo 🎉"
-        : perc >= 50
-          ? "Buon risultato! Puoi migliorare ancora 📈"
-          : "Rileggi le sezioni e riprova 💪";
+      quizRisultatoTitolo.textContent = score === tot ? "Perfetto!" :
+        score >= Math.ceil(tot * 0.7) ? "Ottimo!" :
+        score >= Math.ceil(tot * 0.4) ? "Buono!" : "Da ripassare";
     }
 
     if (quizRisultatoTesto) {
-      quizRisultatoTesto.textContent = `Hai risposto correttamente a ${quizPunteggio} domande su ${domande.length} (${perc}%).`;
+      quizRisultatoTesto.textContent = `Hai totalizzato ${score} risposte corrette su ${tot}.`;
     }
+
+    if (quizProgressBarEl) quizProgressBarEl.style.width = "100%";
   }
 
   if (quizNextEl) {
     quizNextEl.addEventListener("click", function () {
       quizIndex++;
-      if (quizIndex < domande.length) {
-        mostraDomanda();
-      } else {
-        mostraRisultato();
-      }
+      if (quizIndex >= domande.length) mostraRisultato();
+      else mostraDomanda();
     });
   }
 
-  const quizResetEl = document.getElementById("quizReset");
-  if (quizResetEl) {
-    quizResetEl.addEventListener("click", function () {
-      quizIndex = 0;
-      quizPunteggio = 0;
-      quizRispostaData = false;
-
-      quizRisultatoEl.style.display = "none";
-      quizDomandaEl.style.display = "";
-      quizOpzioniEl.style.display = "";
-      quizFeedbackEl.style.display = "";
-      if (quizCounterEl) quizCounterEl.style.display = "";
-      if (quizProgressBarEl) quizProgressBarEl.parentElement.style.display = "";
-
-      mostraDomanda();
-    });
-  }
-
-  // Avvia il quiz
-  if (quizDomandaEl) mostraDomanda();
+  // Avvia quiz se presente nella pagina
+  if (quizDomandaEl && quizOpzioniEl) mostraDomanda();
 
 });
