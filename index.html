@@ -147,6 +147,7 @@
       </div>
     </section>
 
+    <!-- ===================== NUMERI + GRAFICI ON-CLICK ===================== -->
     <section id="numeri" class="section-card animate-on-scroll">
       <div class="section-intro">
         <span class="section-label">Dati</span>
@@ -157,17 +158,46 @@
         <article>
           <h3><span class="counter" data-target="60000" data-prefix="-" data-suffix=" t">-60.000 t</span></h3>
           <p>CO₂ eq/anno di riduzione stimata grazie al progetto biometano.</p>
+          <p class="show-chart" data-chart="co2">Mostra grafico</p>
         </article>
 
         <article>
           <h3><span class="counter" data-target="30" data-prefix="-" data-suffix="%">-30%</span></h3>
           <p>Obiettivo di riduzione delle emissioni lungo la filiera entro il 2030.</p>
+          <p class="show-chart" data-chart="target">Mostra grafico</p>
         </article>
 
         <article>
           <h3><span class="counter" data-target="80" data-prefix="" data-suffix="+">80+</span></h3>
           <p>Allevamenti monitorati con attività di misurazione e miglioramento continuo.</p>
+          <p class="show-chart" data-chart="farms">Mostra grafico</p>
         </article>
+      </div>
+
+      <!-- BOX GRAFICI (si apre solo al click) -->
+      <div class="mini-charts" id="miniCharts" aria-hidden="true">
+        <div class="mini-charts-head">
+          <span id="chartTitle">Grafico</span>
+          <button type="button" class="mini-charts-close" id="closeCharts">Chiudi</button>
+        </div>
+
+        <div class="bar-row" data-pct="100">
+          <span class="bar-label">Biometano</span>
+          <div class="bar-track"><div class="bar-fill"></div></div>
+          <span class="bar-value">-60.000 t CO₂</span>
+        </div>
+
+        <div class="bar-row" data-pct="70">
+          <span class="bar-label">Obiettivo 2030</span>
+          <div class="bar-track"><div class="bar-fill"></div></div>
+          <span class="bar-value">-30%</span>
+        </div>
+
+        <div class="bar-row" data-pct="55">
+          <span class="bar-label">Monitoraggio</span>
+          <div class="bar-track"><div class="bar-fill"></div></div>
+          <span class="bar-value">80+ allevamenti</span>
+        </div>
       </div>
 
       <p class="fonte">Fonte: Report di sostenibilità Granarolo – Summary 2024.</p>
