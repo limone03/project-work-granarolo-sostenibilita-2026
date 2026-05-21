@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  /* =============================================
-     SPLASH CON PARTICELLE
-     ============================================= */
+  /* =========================
+     SPLASH (se presente)
+     ========================= */
   const splash = document.getElementById("splash");
   const splashParticles = document.getElementById("splashParticles");
 
@@ -11,14 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
       for (let i = 0; i < 12; i++) {
         const p = document.createElement("span");
         p.className = "splash-particle";
-        p.style.cssText = `
-          left: ${Math.random() * 100}%;
-          top: ${Math.random() * 100}%;
-          animation-delay: ${Math.random() * 0.8}s;
-          animation-duration: ${0.6 + Math.random() * 0.6}s;
-          width: ${4 + Math.random() * 6}px;
-          height: ${4 + Math.random() * 6}px;
-        `;
+        p.style.left = (Math.random() * 100) + "%";
+        p.style.top = (Math.random() * 100) + "%";
+        p.style.animationDelay = (Math.random() * 0.8) + "s";
+        p.style.animationDuration = (0.6 + Math.random() * 0.6) + "s";
+        p.style.width = (4 + Math.random() * 6) + "px";
+        p.style.height = p.style.width;
         splashParticles.appendChild(p);
       }
     }
@@ -26,21 +24,24 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
       splash.classList.add("hide");
       setTimeout(() => splash.remove(), 400);
-    }, 1200);
+    }, 1000);
   }
 
-  /* =============================================
-     DARK MODE
-     ============================================= */
+  /* =========================
+     DARK MODE (se presente)
+     ========================= */
   const darkToggle = document.getElementById("darkToggle");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  if (localStorage.getItem("darkMode") === "1" || (prefersDark && localStorage.getItem("darkMode") === null)) {
-    document.body.classList.add("dark");
-    if (darkToggle) darkToggle.textContent = "☀️";
-  }
-
   if (darkToggle) {
+    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const saved = localStorage.getItem("darkMode");
+
+    if (saved === "1" || (saved === null && prefersDark)) {
+      document.body.classList.add("dark");
+      darkToggle.textContent = "☀️";
+    } else {
+      darkToggle.textContent = "🌙";
+    }
+
     darkToggle.addEventListener("click", function () {
       document.body.classList.toggle("dark");
       const isDark = document.body.classList.contains("dark");
@@ -49,9 +50,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* =============================================
-     SIDEBAR
-     ============================================= */
+  /* =========================
+     SIDEBAR (hamburger)
+     ========================= */
   const menuToggle = document.getElementById("menuToggle");
   const sideNav = document.getElementById("sideNav");
   const menuClose = document.getElementById("menuClose");
@@ -75,13 +76,15 @@ document.addEventListener("DOMContentLoaded", function () {
     menuToggle.addEventListener("click", openMenu);
     menuClose.addEventListener("click", closeMenu);
     menuOverlay.addEventListener("click", closeMenu);
-    sideNav.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
+
+    sideNav.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", closeMenu);
+    });
   }
 
-  /* =============================================
-     SCROLLSPY SIDEBAR (IntersectionObserver)
-     Evidenzia il link della sezione visibile
-     ============================================= */
+  /* =========================
+     SCROLLSPY (sidebar)
+     ========================= */
   (function () {
     const sideNavEl = document.getElementById("sideNav");
     if (!sideNavEl) return;
@@ -106,7 +109,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (activeLink) activeLink.classList.add("spy-active");
     }
 
-    // fallback (se IO non disponibile)
     if (!("IntersectionObserver" in window)) {
       window.addEventListener("scroll", () => {
         const y = window.scrollY + 140;
@@ -141,9 +143,9 @@ document.addEventListener("DOMContentLoaded", function () {
     setActive(sections[0].id);
   })();
 
-  /* =============================================
-     BARRA PROGRESSO + BACK TO TOP
-     ============================================= */
+  /* =========================
+     PROGRESS BAR + BACK TO TOP
+     ========================= */
   const progressBar = document.getElementById("progressBar");
   const backToTop = document.getElementById("backToTop");
 
@@ -165,9 +167,9 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("load", aggiornaScroll);
   aggiornaScroll();
 
-  /* =============================================
-     ANIMAZIONE INGRESSO
-     ============================================= */
+  /* =========================
+     ANIMATE ON SCROLL
+     ========================= */
   const elementiAnimati = document.querySelectorAll(".animate-on-scroll");
 
   if ("IntersectionObserver" in window) {
@@ -184,9 +186,9 @@ document.addEventListener("DOMContentLoaded", function () {
     elementiAnimati.forEach(el => el.classList.add("visible"));
   }
 
-  /* =============================================
-     CONTATORI ANIMATI
-     ============================================= */
+  /* =========================
+     CONTATORI ANIMATI (Numeri)
+     ========================= */
   function animaContatore(contatore) {
     const valoreFinale = parseInt(contatore.getAttribute("data-target"), 10);
     const prefisso = contatore.getAttribute("data-prefix") || "";
@@ -226,6 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
     card.addEventListener("touchstart", () => animaContatore(contatore), { passive: true });
   });
 
+  /* Partenza automatica contatori quando arrivi a #numeri (una volta sola) */
   const sezioneNumeri = document.getElementById("numeri");
   let contatoriPartiti = false;
 
@@ -243,9 +246,62 @@ document.addEventListener("DOMContentLoaded", function () {
     obsNumeri.observe(sezioneNumeri);
   }
 
-  /* =============================================
-     TOOLTIP CARD AZIONI (hover desktop)
-     ============================================= */
+  /* =========================
+     MINI GRAFICI: mostrali solo al click
+     ========================= */
+  (function () {
+    const chartsBox = document.getElementById("miniCharts");
+    const closeBtn = document.getElementById("closeCharts");
+    const titleEl = document.getElementById("chartTitle");
+    if (!chartsBox) return;
+
+    const rows = Array.from(chartsBox.querySelectorAll(".bar-row"));
+    const fills = rows.map(r => r.querySelector(".bar-fill"));
+
+    function resetBars() {
+      fills.forEach(f => { if (f) f.style.width = "0%"; });
+    }
+
+    function runBars() {
+      rows.forEach((row, i) => {
+        const pct = Math.max(0, Math.min(100, parseInt(row.getAttribute("data-pct"), 10) || 0));
+        const fill = fills[i];
+        if (fill) fill.style.width = pct + "%";
+      });
+    }
+
+    function openCharts(label) {
+      chartsBox.classList.add("show");
+      chartsBox.setAttribute("aria-hidden", "false");
+      if (titleEl) titleEl.textContent = label;
+
+      resetBars();
+      requestAnimationFrame(() => runBars());
+    }
+
+    function closeCharts() {
+      chartsBox.classList.remove("show");
+      chartsBox.setAttribute("aria-hidden", "true");
+    }
+
+    document.querySelectorAll(".show-chart").forEach(el => {
+      el.addEventListener("click", () => {
+        const t = el.getAttribute("data-chart");
+        if (t === "co2") openCharts("Grafico: -60.000 t CO₂");
+        else if (t === "target") openCharts("Grafico: -30% entro 2030");
+        else if (t === "farms") openCharts("Grafico: 80+ allevamenti");
+        else openCharts("Grafico");
+
+        chartsBox.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    if (closeBtn) closeBtn.addEventListener("click", closeCharts);
+  })();
+
+  /* =========================
+     TOOLTIP (azioni) se presenti
+     ========================= */
   document.querySelectorAll(".azione-card[data-tooltip]").forEach(card => {
     const tooltip = card.querySelector(".card-tooltip");
     if (!tooltip) return;
@@ -258,11 +314,10 @@ document.addEventListener("DOMContentLoaded", function () {
     card.addEventListener("blur", () => tooltip.classList.remove("visible"));
   });
 
-  /* =============================================
-     TIMELINE INTERATTIVA
-     ============================================= */
+  /* =========================
+     TIMELINE (se presente)
+     ========================= */
   const timelineItems = document.querySelectorAll(".timeline-item");
-
   timelineItems.forEach(item => {
     item.addEventListener("click", function () {
       const isOpen = item.classList.contains("open");
@@ -270,18 +325,17 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!isOpen) item.classList.add("open");
     });
   });
-
   if (timelineItems.length > 0) timelineItems[0].classList.add("open");
 
-  /* =============================================
-     QUIZ INTERATTIVO
-     ============================================= */
+  /* =========================
+     QUIZ (se presente) + reset
+     ========================= */
   const domande = [
     {
       testo: "Quante tonnellate di CO₂ equivalente l'anno si stima di ridurre grazie al progetto biometano?",
       opzioni: ["20.000 t", "60.000 t", "100.000 t", "40.000 t"],
       corretta: 1,
-      spiegazione: "Il progetto biometano punta a una riduzione stimata di 60.000 t di CO₂ eq/anno, valorizzando i sottoprodotti della filiera come fonte di energia rinnovabile."
+      spiegazione: "Il progetto biometano punta a una riduzione stimata di 60.000 t di CO₂ eq/anno."
     },
     {
       testo: "Qual è l'obiettivo di riduzione delle emissioni lungo la filiera entro il 2030?",
@@ -293,13 +347,13 @@ document.addEventListener("DOMContentLoaded", function () {
       testo: "Quanti allevamenti sono monitorati con attività di misurazione continua?",
       opzioni: ["Oltre 20", "Oltre 50", "Oltre 80", "Oltre 120"],
       corretta: 2,
-      spiegazione: "Più di 80 allevamenti partner sono coinvolti nel programma di monitoraggio e miglioramento continuo."
+      spiegazione: "Più di 80 allevamenti partner sono coinvolti nel programma di monitoraggio."
     },
     {
       testo: "Quale tra questi è uno dei pilastri della strategia di sostenibilità?",
       opzioni: ["Packaging biodegradabile", "Pratiche agronomiche", "Energia solare negli uffici", "Riduzione del personale"],
       corretta: 1,
-      spiegazione: "Le pratiche agronomiche rappresentano uno dei pilastri strategici, puntando a uso più efficiente del suolo e cattura CO₂."
+      spiegazione: "Le pratiche agronomiche rappresentano uno dei pilastri strategici."
     },
     {
       testo: "Cosa caratterizza l'approccio alla sostenibilità?",
@@ -328,6 +382,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const quizScoreCircle = document.getElementById("quizScoreCircle");
   const quizRisultatoTitolo = document.getElementById("quizRisultatoTitolo");
   const quizRisultatoTesto = document.getElementById("quizRisultatoTesto");
+  const quizResetEl = document.getElementById("quizReset");
 
   function mostraDomanda() {
     if (!quizDomandaEl || !quizOpzioniEl) return;
@@ -345,6 +400,7 @@ document.addEventListener("DOMContentLoaded", function () {
       quizFeedbackEl.className = "quiz-feedback";
     }
     if (quizNextEl) quizNextEl.style.display = "none";
+    if (quizRisultatoEl) quizRisultatoEl.style.display = "none";
 
     d.opzioni.forEach((opzione, i) => {
       const btn = document.createElement("button");
@@ -390,7 +446,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (quizScoreCircle) quizScoreCircle.textContent = `${score}/${tot}`;
 
     if (quizRisultatoTitolo) {
-      quizRisultatoTitolo.textContent = score === tot ? "Perfetto!" :
+      quizRisultatoTitolo.textContent =
+        score === tot ? "Perfetto!" :
         score >= Math.ceil(tot * 0.7) ? "Ottimo!" :
         score >= Math.ceil(tot * 0.4) ? "Buono!" : "Da ripassare";
     }
@@ -402,6 +459,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (quizProgressBarEl) quizProgressBarEl.style.width = "100%";
   }
 
+  function resetQuiz() {
+    quizIndex = 0;
+    quizPunteggio = 0;
+    quizRispostaData = false;
+    mostraDomanda();
+  }
+
   if (quizNextEl) {
     quizNextEl.addEventListener("click", function () {
       quizIndex++;
@@ -410,7 +474,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Avvia quiz se presente nella pagina
+  if (quizResetEl) quizResetEl.addEventListener("click", resetQuiz);
+
   if (quizDomandaEl && quizOpzioniEl) mostraDomanda();
 
 });
