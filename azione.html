@@ -6,46 +6,61 @@
   <title>Dettaglio azione</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-
   <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Dark mode toggle fisso -->
+  <button class="dark-toggle" id="darkToggle" aria-label="Attiva modalità scura" title="Modalità scura">🌙</button>
 
   <header id="top">
     <div class="header-top">
       <img src="img/granarolo_logo.jpg" alt="Logo Granarolo" class="logo">
       <a class="back-home" href="index.html">← Torna alla pagina principale</a>
     </div>
-
     <div class="hero">
       <span class="tag">Azione · Dettaglio</span>
       <h1 id="titoloAzione">Caricamento…</h1>
       <p id="sottotitoloAzione"></p>
+
+      <!-- Navigazione prev / next -->
+      <div class="azione-nav">
+        <a class="azione-nav-btn" id="btnPrev" href="#">← Azione precedente</a>
+        <span class="azione-nav-dot" id="azioneNavDot"></span>
+        <a class="azione-nav-btn" id="btnNext" href="#">Azione successiva →</a>
+      </div>
     </div>
   </header>
 
   <main class="container">
-    <section class="section-card">
+    <section class="section-card animate-on-scroll">
       <div class="azione-page-grid">
-
         <div class="azione-page-img">
           <img id="imgAzione" src="" alt="">
         </div>
-
         <div class="azione-page-text">
           <h2 id="h2Azione"></h2>
           <p id="testoAzione"></p>
-
           <div class="azione-page-box">
             <p id="datoAzione"></p>
           </div>
+
+          <!-- Barra lettura testo -->
+          <div class="reading-time" id="readingTime"></div>
 
           <a class="btn btn-primary pdf-button" href="report/report-sostenibilita-granarolo.pdf" download>
             Scarica il report PDF
           </a>
         </div>
-
       </div>
+    </section>
+
+    <!-- Card correlate (le altre azioni) -->
+    <section class="section-card animate-on-scroll" id="azioniCorrelate">
+      <div class="section-intro">
+        <span class="section-label">Esplora</span>
+        <h2>Altre azioni</h2>
+      </div>
+      <div class="correlate-grid" id="correlateGrid"></div>
     </section>
   </main>
 
@@ -56,8 +71,6 @@
   </footer>
 
   <a href="#top" class="back-to-top" id="backToTop" aria-label="Torna su">↑</a>
-
-  <!-- IMPORTANTE: il nome deve essere ESATTAMENTE azione.js -->
   <script src="azione.js"></script>
 </body>
 </html>
