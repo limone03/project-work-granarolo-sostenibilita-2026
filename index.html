@@ -14,18 +14,21 @@
     <div class="splash-logo">g</div>
     <p class="splash-title">Granarolo · Sostenibilità</p>
     <p class="splash-sub">Caricamento…</p>
+    <div class="splash-particles" id="splashParticles"></div>
   </div>
 </div>
+
   <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Dark mode toggle fisso -->
+  <button class="dark-toggle" id="darkToggle" aria-label="Attiva modalità scura" title="Modalità scura">🌙</button>
 
   <header id="top">
     <div class="header-top">
       <img src="img/granarolo_logo.jpg" alt="Logo Granarolo" class="logo">
 
-      <!-- Bottone hamburger -->
       <button class="menu-toggle" id="menuToggle" aria-label="Apri menu" aria-expanded="false">☰</button>
 
-      <!-- Sidebar -->
       <nav class="side-nav" id="sideNav" aria-label="Navigazione">
         <button class="menu-close" id="menuClose" aria-label="Chiudi menu">✕</button>
         <ul>
@@ -33,11 +36,12 @@
           <li><a href="#obiettivo">Obiettivo</a></li>
           <li><a href="#azioni">Azioni</a></li>
           <li><a href="#numeri">Numeri</a></li>
+          <li><a href="#timeline">Timeline</a></li>
+          <li><a href="#quiz">Quiz</a></li>
           <li><a href="report/report-sostenibilita-granarolo.pdf" download>Scarica PDF</a></li>
         </ul>
       </nav>
 
-      <!-- Overlay -->
       <div class="overlay" id="menuOverlay"></div>
     </div>
 
@@ -69,7 +73,7 @@
       </div>
       <p class="highlight-section">
         Granarolo è un gruppo cooperativo italiano attivo nella filiera lattiero-casearia. La sostenibilità in questo ambito
-        riguarda anche attività “a monte” tipiche del settore primario, come allevamenti, nutrizione animale e pratiche agronomiche
+        riguarda anche attività "a monte" tipiche del settore primario, come allevamenti, nutrizione animale e pratiche agronomiche
         collegate alla produzione di latte.
       </p>
     </section>
@@ -80,7 +84,7 @@
         <h2>Obiettivo</h2>
       </div>
       <p>
-        L’obiettivo è sintetizzare le azioni principali e alcuni numeri chiave tratti dal Summary 2024,
+        L'obiettivo è sintetizzare le azioni principali e alcuni numeri chiave tratti dal Summary 2024,
         mantenendo sempre il collegamento al report ufficiale tramite download PDF.
       </p>
 
@@ -100,39 +104,44 @@
 
       <div class="azioni-grid">
 
-        <article class="azione-card">
+        <article class="azione-card" data-tooltip="Miglioramento delle condizioni di allevamento e riduzione dell'uso di farmaci veterinari per una filiera più sana.">
           <span class="card-number">01</span>
           <h3>Benessere animale</h3>
-          <p>Miglioramento delle condizioni degli allevamenti e riduzione dell’uso di farmaci veterinari.</p>
+          <p>Miglioramento delle condizioni degli allevamenti e riduzione dell'uso di farmaci veterinari.</p>
           <a class="scopri-link" href="azione.html?id=azione1">Scopri di più</a>
+          <div class="card-tooltip" aria-hidden="true"></div>
         </article>
 
-        <article class="azione-card">
+        <article class="azione-card" data-tooltip="L'alimentazione ottimizzata riduce i consumi e l'impatto ambientale senza compromettere la qualità produttiva.">
           <span class="card-number">02</span>
           <h3>Nutrizione animale sostenibile</h3>
-          <p>Interventi sull’alimentazione per ridurre l’impatto ambientale della produzione di latte.</p>
+          <p>Interventi sull'alimentazione per ridurre l'impatto ambientale della produzione di latte.</p>
           <a class="scopri-link" href="azione.html?id=azione2">Scopri di più</a>
+          <div class="card-tooltip" aria-hidden="true"></div>
         </article>
 
-        <article class="azione-card">
+        <article class="azione-card" data-tooltip="Pratiche agricole ottimizzate per il suolo, le risorse naturali e la cattura della CO₂.">
           <span class="card-number">03</span>
           <h3>Pratiche agronomiche</h3>
-          <p>Ottimizzazione delle pratiche agricole, anche con l’obiettivo di favorire la cattura della CO₂.</p>
+          <p>Ottimizzazione delle pratiche agricole, anche con l'obiettivo di favorire la cattura della CO₂.</p>
           <a class="scopri-link" href="azione.html?id=azione3">Scopri di più</a>
+          <div class="card-tooltip" aria-hidden="true"></div>
         </article>
 
-        <article class="azione-card">
+        <article class="azione-card" data-tooltip="Monitoraggio continuo e interventi mirati per rendere la sostenibilità misurabile e verificabile.">
           <span class="card-number">04</span>
-          <h3>Riduzione dell’impatto della produzione di latte</h3>
+          <h3>Riduzione dell'impatto della produzione di latte</h3>
           <p>Monitoraggio negli allevamenti e interventi mirati su emissioni e consumi.</p>
           <a class="scopri-link" href="azione.html?id=azione4">Scopri di più</a>
+          <div class="card-tooltip" aria-hidden="true"></div>
         </article>
 
-        <article class="azione-card">
+        <article class="azione-card" data-tooltip="Economia circolare di filiera: i sottoprodotti diventano energia rinnovabile, riducendo le emissioni.">
           <span class="card-number">05</span>
           <h3>Progetto biometano</h3>
           <p>Sviluppo della filiera del biometano ed energia rinnovabile per contribuire alla riduzione delle emissioni.</p>
           <a class="scopri-link" href="azione.html?id=azione5">Scopri di più</a>
+          <div class="card-tooltip" aria-hidden="true"></div>
         </article>
 
       </div>
@@ -168,6 +177,99 @@
         <a href="report/report-sostenibilita-granarolo.pdf" download class="btn btn-primary pdf-button">
           Scarica il report PDF
         </a>
+      </div>
+    </section>
+
+    <!-- ===================== TIMELINE INTERATTIVA ===================== -->
+    <section id="timeline" class="section-card animate-on-scroll">
+      <div class="section-intro">
+        <span class="section-label">Roadmap</span>
+        <h2>Timeline degli obiettivi</h2>
+      </div>
+      <p style="color:#3c5148; margin-bottom:28px;">Clicca su ogni tappa per espandere i dettagli.</p>
+
+      <div class="timeline">
+
+        <div class="timeline-item" data-anno="2020">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-anno">2020</span>
+            <h4>Avvio monitoraggio allevamenti</h4>
+            <div class="timeline-detail">
+              <p>Granarolo avvia un programma sistematico di monitoraggio in oltre 80 allevamenti partner, raccogliendo dati su emissioni, benessere animale e uso dei farmaci.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-anno="2022">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-anno">2022</span>
+            <h4>Progetto biometano</h4>
+            <div class="timeline-detail">
+              <p>Lancio del progetto pilota per la produzione di biometano da sottoprodotti della filiera, puntando a ridurre di 60.000 t/anno le emissioni di CO₂ equivalente.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-anno="2024">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-anno">2024</span>
+            <h4>Summary di sostenibilità</h4>
+            <div class="timeline-detail">
+              <p>Pubblicazione del Summary 2024 con i risultati delle azioni intraprese e la definizione degli obiettivi verso il 2030. Prima rendicontazione completa delle 5 azioni strategiche.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-anno="2030">
+          <div class="timeline-dot timeline-dot--futuro"></div>
+          <div class="timeline-content">
+            <span class="timeline-anno">2030</span>
+            <h4>Obiettivo emissioni −30%</h4>
+            <div class="timeline-detail">
+              <p>Target finale: ridurre del 30% le emissioni lungo l'intera filiera lattiero-casearia rispetto ai livelli base, integrando biometano, agronomia sostenibile e nutrizione ottimizzata.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===================== QUIZ INTERATTIVO ===================== -->
+    <section id="quiz" class="section-card animate-on-scroll">
+      <div class="section-intro">
+        <span class="section-label">Interattivo</span>
+        <h2>Quiz sulla sostenibilità</h2>
+      </div>
+      <p style="color:#3c5148; margin-bottom: 24px;">Metti alla prova le tue conoscenze sul report Granarolo 2024.</p>
+
+      <div class="quiz-container" id="quizContainer">
+
+        <div class="quiz-progress-wrap">
+          <div class="quiz-progress-bar" id="quizProgressBar"></div>
+        </div>
+        <p class="quiz-counter" id="quizCounter">Domanda 1 di 5</p>
+
+        <div class="quiz-domanda" id="quizDomanda"></div>
+
+        <div class="quiz-opzioni" id="quizOpzioni"></div>
+
+        <div class="quiz-feedback" id="quizFeedback" aria-live="polite"></div>
+
+        <button class="btn btn-primary" id="quizNext" style="display:none; margin-top:18px;">Prossima domanda →</button>
+
+        <!-- Risultato finale -->
+        <div class="quiz-risultato" id="quizRisultato" style="display:none;">
+          <div class="quiz-risultato-inner">
+            <div class="quiz-score-circle" id="quizScoreCircle"></div>
+            <h3 id="quizRisultatoTitolo"></h3>
+            <p id="quizRisultatoTesto"></p>
+            <button class="btn btn-primary" id="quizReset">Riprova il quiz ↺</button>
+          </div>
+        </div>
+
       </div>
     </section>
 
