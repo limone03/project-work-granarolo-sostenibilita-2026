@@ -1,5 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+  /* Splash: mostra 1 secondo e poi sparisce */
+  const splash = document.getElementById("splash");
+  if (splash) {
+    setTimeout(() => {
+      splash.classList.add("hide");
+      setTimeout(() => splash.remove(), 400);
+    }, 1000);
+  }
+
   /* Sidebar */
   const menuToggle = document.getElementById("menuToggle");
   const sideNav = document.getElementById("sideNav");
@@ -28,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* Barra di avanzamento durante lo scroll */
+  /* Barra di avanzamento + back to top */
   const progressBar = document.getElementById("progressBar");
   const backToTop = document.getElementById("backToTop");
 
@@ -70,31 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* Card azioni - apertura contenuto extra */
-  const pulsantiScopri = document.querySelectorAll(".scopri-btn");
-
-  pulsantiScopri.forEach(function (pulsante) {
-    pulsante.addEventListener("click", function (event) {
-      event.preventDefault();
-
-      const card = pulsante.closest(".azione-card");
-      if (!card) return;
-
-      card.classList.toggle("aperta");
-
-      const contenutoExtra = card.querySelector(".azione-extra");
-
-      if (card.classList.contains("aperta")) {
-        pulsante.textContent = "Mostra meno";
-        if (contenutoExtra) contenutoExtra.style.display = "block";
-      } else {
-        pulsante.textContent = "Scopri di più";
-        if (contenutoExtra) contenutoExtra.style.display = "none";
-      }
-    });
-  });
-
-  /* Funzione per animare un singolo contatore */
+  /* Funzione contatore */
   function animaContatore(contatore) {
     const valoreFinale = parseInt(contatore.getAttribute("data-target"), 10);
     const prefisso = contatore.getAttribute("data-prefix") || "";
@@ -125,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 20);
   }
 
-  /* Numeri animati: hover (desktop) + click/tap (mobile) */
+  /* Numeri animati: hover/click/tap */
   const cardNumeri = document.querySelectorAll(".numeri-grid article");
 
   cardNumeri.forEach(function (card) {
