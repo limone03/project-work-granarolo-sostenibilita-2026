@@ -1202,3 +1202,13 @@ footer a {
   .azione-page-img img { height: 220px; border-radius: 16px; }
   .correlate-grid { grid-template-columns: repeat(2, 1fr); }
 }
+/* ===== ScrollSpy: link attivo nella sidebar ===== */
+#sideNav a.spy-active{
+  background: #1b7f5a;
+  color: #ffffff;
+}
+
+/* (facoltativo ma consigliato: rende più fluido il cambio) */
+#sideNav a{
+  transition: background 0.2s ease, color 0.2s ease;
+}
