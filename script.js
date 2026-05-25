@@ -479,3 +479,44 @@ document.addEventListener("DOMContentLoaded", function () {
   if (quizDomandaEl && quizOpzioniEl) mostraDomanda();
 
 });
+/* ----------------------------------------------------------
+   1. HERO TITLE — spezza h1 in .word > span e anima
+   ---------------------------------------------------------- */
+(function () {
+  const h1 = document.querySelector("header .hero h1");
+  if (!h1) return;
+ 
+  // Spezza il testo in parole, wrappando ognuna
+  const testo = h1.textContent.trim();
+  const parole = testo.split(/\s+/);
+  h1.innerHTML = parole.map(function (w, i) {
+    // delay crescente per ogni parola
+    var delay = (i * 80) + "ms";
+    return '<span class="word"><span style="animation-delay:' + delay + '">' + w + '</span></span>';
+  }).join(" ");
+})();
+ 
+/* ----------------------------------------------------------
+   2. CARD AZIONI — aggiunge .cards-visible a #azioni
+      quando la sezione entra in viewport
+   ---------------------------------------------------------- */
+(function () {
+  const sezioneAzioni = document.getElementById("azioni");
+  if (!sezioneAzioni) return;
+ 
+  if (!("IntersectionObserver" in window)) {
+    sezioneAzioni.classList.add("cards-visible");
+    return;
+  }
+ 
+  const obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        sezioneAzioni.classList.add("cards-visible");
+        obs.disconnect();
+      }
+    });
+  }, { threshold: 0.12 });
+ 
+  obs.observe(sezioneAzioni);
+})();
