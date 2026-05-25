@@ -1010,3 +1010,62 @@ footer a, footer a:visited{
     font-size: 15px !important;
   }
 }
+/* ============================================================
+   ANIMAZIONI UPGRADE — incolla in fondo a styles.css
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   1. HERO TITLE — parole che salgono una per una
+   ---------------------------------------------------------- */
+.hero h1 .word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  /* ogni .word è un "tunnel" che maschera la parola sotto */
+}
+
+.hero h1 .word span {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+  animation: wordRise 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes wordRise {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ----------------------------------------------------------
+   2. CARD AZIONI — entrata a cascata (stagger)
+   ---------------------------------------------------------- */
+.azioni-grid article {
+  opacity: 0;
+  transform: translateY(28px);
+  /* NB: la transizione base (hover) è già in styles.css;
+     qui aggiungiamo l'animazione di ingresso */
+  animation: cardIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-play-state: paused; /* parte solo via JS */
+}
+
+@keyframes cardIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* quando la sezione #azioni entra in viewport (classe aggiunta da JS) */
+#azioni.cards-visible .azioni-grid article:nth-child(1) { animation-play-state: running; animation-delay: 0ms; }
+#azioni.cards-visible .azioni-grid article:nth-child(2) { animation-play-state: running; animation-delay: 90ms; }
+#azioni.cards-visible .azioni-grid article:nth-child(3) { animation-play-state: running; animation-delay: 180ms; }
+#azioni.cards-visible .azioni-grid article:nth-child(4) { animation-play-state: running; animation-delay: 270ms; }
+#azioni.cards-visible .azioni-grid article:nth-child(5) { animation-play-state: running; animation-delay: 360ms; }
+
+/* dopo che l'animazione è finita, rimuoviamo l'opacity:0
+   così hover/transizioni successive funzionano normalmente */
+#azioni.cards-visible .azioni-grid article {
+  /* la fill-mode: forwards dell'animation mantiene opacity:1 */
+}
