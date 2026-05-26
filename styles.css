@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:wght@500;600;700&display=swap');
  
 /* =========================
@@ -25,15 +24,9 @@ body {
   background-attachment: fixed;
 }
  
-/* =========================
-   LINK
-   ========================= */
 a, a:visited { color: #1b7f5a !important; text-decoration: none; }
 a:hover { color: #14664a !important; text-decoration: underline; text-underline-offset: 3px; }
  
-/* =========================
-   PROGRESS BAR
-   ========================= */
 .progress-bar {
   position: fixed; top: 0; left: 0;
   height: 5px; width: 0%;
@@ -42,30 +35,27 @@ a:hover { color: #14664a !important; text-decoration: underline; text-underline-
   transition: width 0.12s linear;
 }
  
-/* ═══════════════════════════════════════════════════
-   SPLASH LIQUID REVEAL
-   ═══════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════
+   SPLASH — logo pop + fade out pulito
+   ═══════════════════════════════════════════ */
 .splash {
   position: fixed;
   inset: 0;
   background: #1b7f5a;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 999999;
-  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.splash.hide {
+  opacity: 0;
+  pointer-events: none;
 }
  
-/* Logo + titolo centrati */
 .splash-content {
-  position: relative;
-  z-index: 2;
   text-align: center;
-  animation: splashContentOut 0.4s ease 1.3s forwards;
-}
-@keyframes splashContentOut {
-  to { opacity: 0; transform: scale(0.88); }
 }
  
 .splash-logo {
@@ -94,64 +84,29 @@ a:hover { color: #14664a !important; text-decoration: underline; text-underline-
   to   { opacity: 1; transform: translateY(0); }
 }
  
-/* Onda che sale e rivela la pagina */
-.splash-wave-wrap {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 160px;
-  z-index: 3;
-  pointer-events: none;
-  transform: translateY(100%);
-  animation: waveRise 0.75s cubic-bezier(0.76,0,0.24,1) 1.45s forwards;
+/* ═══════════════════════════════════════════
+   HERO BLUR-TO-FOCUS
+   ═══════════════════════════════════════════ */
+header .hero .tag {
+  animation: heroFocus 0.9s cubic-bezier(0.22,1,0.36,1) 1.4s both;
 }
-@keyframes waveRise {
-  to { transform: translateY(0); }
-}
- 
-/* Il rettangolo pieno sotto l'onda */
-.splash-wave-wrap::after {
-  content: "";
-  position: absolute;
-  top: 118px; left: 0; right: 0; bottom: -300px;
-  background: #eef5ef;
-}
- 
-.splash-wave-svg {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 120px;
-}
- 
-/* Fade out finale */
-.splash.hide {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
- 
-/* ═══════════════════════════════════════════════════
-   HERO BLUR-TO-FOCUS (titolo, sottotitolo, bottoni)
-   ═══════════════════════════════════════════════════ */
 header .hero h1 {
-  animation: heroFocus 1s cubic-bezier(0.22,1,0.36,1) 2s both;
+  animation: heroFocus 0.9s cubic-bezier(0.22,1,0.36,1) 1.6s both;
 }
 header .hero > p {
-  animation: heroFocus 1s cubic-bezier(0.22,1,0.36,1) 2.2s both;
+  animation: heroFocus 0.9s cubic-bezier(0.22,1,0.36,1) 1.8s both;
 }
 header .hero .hero-buttons {
-  animation: heroFocus 1s cubic-bezier(0.22,1,0.36,1) 2.4s both;
-}
-header .hero .tag {
-  animation: heroFocus 1s cubic-bezier(0.22,1,0.36,1) 1.8s both;
+  animation: heroFocus 0.9s cubic-bezier(0.22,1,0.36,1) 2.0s both;
 }
 @keyframes heroFocus {
   from { opacity: 0; filter: blur(16px); transform: translateY(14px); }
   to   { opacity: 1; filter: blur(0);    transform: translateY(0); }
 }
  
-/* ═══════════════════════════════════════════════════
+/* ═══════════════════════════════════════════
    CARD AZIONI — stagger entrata
-   ═══════════════════════════════════════════════════ */
+   ═══════════════════════════════════════════ */
 .azioni-grid article {
   opacity: 0;
   transform: translateY(30px);
@@ -196,9 +151,6 @@ body.dark .side-nav a.spy-active { background: #1b7f5a; color: #fff !important; 
 header, .section-card, footer { max-width: 1100px; margin: 24px auto; padding: 24px; }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
  
-/* =========================
-   HEADER + HERO
-   ========================= */
 header {
   margin-top: 24px;
   background: rgba(255,255,255,0.95);
@@ -226,9 +178,6 @@ header h1 {
 header p { margin: 0 0 22px; max-width: 720px; color: #3c5148; font-size: 17px; }
 .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
  
-/* =========================
-   BUTTONS
-   ========================= */
 .btn {
   display: inline-block; padding: 13px 18px; border-radius: 14px;
   font-weight: 800; text-decoration: none !important;
@@ -241,16 +190,9 @@ header p { margin: 0 0 22px; max-width: 720px; color: #3c5148; font-size: 17px; 
 .btn-secondary:hover { background: #f1faf5; }
  
 .btn-primary.pdf-button { position: relative; overflow: hidden; }
-.btn-primary.pdf-button::after {
-  content:""; position:absolute; top:-30%; left:-60%;
-  width:40%; height:160%; background:rgba(255,255,255,0.25);
-  transform:rotate(20deg); transition:left 0.45s ease;
-}
+.btn-primary.pdf-button::after { content:""; position:absolute; top:-30%; left:-60%; width:40%; height:160%; background:rgba(255,255,255,0.25); transform:rotate(20deg); transition:left 0.45s ease; }
 .btn-primary.pdf-button:hover::after { left:120%; }
  
-/* =========================
-   SIDEBAR
-   ========================= */
 .menu-toggle { border:0; background:rgba(27,127,90,0.10); color:#1b7f5a; font-weight:900; font-size:20px; padding:10px 14px; border-radius:12px; cursor:pointer; }
 .side-nav { position:fixed; top:0; right:-340px; width:320px; max-width:85vw; height:100vh; background:#fff; box-shadow:-18px 0 40px rgba(0,0,0,0.18); z-index:99999; padding:18px; transition:right 0.25s ease; }
 .side-nav.open { right:0; }
@@ -262,9 +204,6 @@ header p { margin: 0 0 22px; max-width: 720px; color: #3c5148; font-size: 17px; 
 .overlay { position:fixed; inset:0; background:rgba(0,0,0,0.35); z-index:99998; opacity:0; pointer-events:none; transition:opacity 0.25s ease; }
 .overlay.show { opacity:1; pointer-events:auto; }
  
-/* =========================
-   SECTIONS
-   ========================= */
 .section-card { background:rgba(255,255,255,0.95); border-radius:24px; box-shadow:0 14px 35px rgba(0,0,0,0.08); border:1px solid rgba(27,127,90,0.10); }
 .section-intro { margin-bottom:18px; }
  
@@ -274,24 +213,13 @@ h2::after { content:""; display:block; width:58px; height:4px; background:#1b7f5
 .report-box { margin-top:22px; padding:22px; border-radius:20px; background:rgba(255,255,255,0.70); border:1px solid rgba(27,127,90,0.14); box-shadow:0 8px 22px rgba(0,0,0,0.06); }
 .report-box p { margin:0 0 16px; color:#3c5148; font-size:16px; }
  
-/* =========================
-   GRIDS
-   ========================= */
 .azioni-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:18px; }
 .numeri-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:18px; margin-bottom:18px; }
 .azioni-grid, .numeri-grid { align-items:stretch; }
 .azioni-grid article, .numeri-grid article { height:100%; display:flex; flex-direction:column; }
 .azioni-grid article p, .numeri-grid article p { flex:1 1 auto; }
  
-/* =========================
-   ACTION CARDS
-   ========================= */
-.azioni-grid article {
-  background:#fff; padding:22px; border-radius:20px;
-  border:1px solid rgba(27,127,90,0.12);
-  box-shadow:0 8px 22px rgba(0,0,0,0.07);
-  transition:transform 0.2s ease, box-shadow 0.2s ease;
-}
+.azioni-grid article { background:#fff; padding:22px; border-radius:20px; border:1px solid rgba(27,127,90,0.12); box-shadow:0 8px 22px rgba(0,0,0,0.07); transition:transform 0.2s ease, box-shadow 0.2s ease; }
 .azioni-grid article:hover { transform:translateY(-5px); box-shadow:0 14px 30px rgba(0,0,0,0.12); }
 .card-number { display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; margin-bottom:14px; border-radius:14px; background:#e4f4ec; color:#1b7f5a; font-weight:900; }
 .azioni-grid h3 { margin:0 0 10px; font-size:20px; color:#0f2d22; }
@@ -303,9 +231,6 @@ h2::after { content:""; display:block; width:58px; height:4px; background:#1b7f5
 .card-tooltip { margin-top:12px; font-size:13px; color:#2f3e37; background:rgba(27,127,90,0.08); border:1px solid rgba(27,127,90,0.12); padding:10px 12px; border-radius:14px; display:none; }
 .card-tooltip.visible { display:block; }
  
-/* =========================
-   NUMERI
-   ========================= */
 .numeri-grid article { background:#fff; padding:24px; border-radius:20px; border:1px solid rgba(27,127,90,0.14); box-shadow:0 8px 22px rgba(0,0,0,0.07); transition:transform 0.25s ease,box-shadow 0.25s ease; position:relative; overflow:hidden; }
 .numeri-grid h3 { margin:0 0 8px; font-size:36px; color:#1b7f5a; letter-spacing:-1px; }
 .numeri-grid p { margin:0; color:#52665d; }
@@ -322,9 +247,6 @@ h2::after { content:""; display:block; width:58px; height:4px; background:#1b7f5
 .show-chart { margin-top:10px; font-size:13px; font-weight:800; cursor:pointer; display:inline-block; text-decoration:underline; text-underline-offset:3px; color:#1b7f5a; }
 .numeri-grid article:hover .show-chart { color:#ffffff; }
  
-/* =========================
-   MINI CHARTS
-   ========================= */
 .mini-charts { margin-top:18px; padding:16px; border-radius:18px; background:rgba(255,255,255,0.80); border:1px solid rgba(27,127,90,0.14); box-shadow:0 10px 24px rgba(0,0,0,0.08); display:none; }
 .mini-charts.show { display:grid; gap:12px; }
 .mini-charts-head { display:flex; align-items:center; justify-content:space-between; gap:12px; }
@@ -337,33 +259,21 @@ h2::after { content:""; display:block; width:58px; height:4px; background:#1b7f5
 .bar-track { height:14px; background:rgba(27,127,90,0.12); border-radius:999px; overflow:hidden; }
 .bar-fill { height:100%; width:0%; background:#1b7f5a; border-radius:999px; transition:width 900ms ease; }
  
-/* =========================
-   PAGINA AZIONE
-   ========================= */
 .back-home { display:inline-block; padding:10px 12px; border-radius:12px; font-weight:800; background:rgba(27,127,90,0.10); border:1px solid rgba(27,127,90,0.12); text-decoration:none !important; }
-.back-home:hover { background:rgba(27,127,90,0.16); text-decoration:none !important; }
+.back-home:hover { background:rgba(27,127,90,0.16); }
 .azione-page-grid { display:grid; grid-template-columns:1.05fr 0.95fr; gap:18px; align-items:start; }
 .azione-page-img img { width:100%; height:360px; object-fit:cover; border-radius:18px; display:block; border:1px solid rgba(0,0,0,0.08); box-shadow:0 10px 24px rgba(0,0,0,0.08); }
 .azione-page-box { margin:16px 0; padding:14px; border-radius:16px; background:rgba(27,127,90,0.06); border:1px solid rgba(27,127,90,0.14); }
 .azione-page-box p { margin:0; color:#2f3e37; font-weight:600; }
  
-/* =========================
-   ANIMATE ON SCROLL
-   ========================= */
 .animate-on-scroll { opacity:0; transform:translateY(18px); transition:0.6s ease; }
 .animate-on-scroll.visible { opacity:1; transform:translateY(0); }
  
-/* =========================
-   FOOTER + BACK TO TOP
-   ========================= */
 footer { text-align:center; color:#1b7f5a; background:rgba(255,255,255,0.90); border-radius:20px; border:1px solid rgba(27,127,90,0.10); }
 footer a, footer a:visited { color:#1b7f5a !important; font-weight:800; }
 .back-to-top { position:fixed; right:16px; bottom:16px; width:44px; height:44px; display:grid; place-items:center; border-radius:999px; background:#1b7f5a; color:#fff !important; text-decoration:none !important; font-weight:900; opacity:0; pointer-events:none; transform:translateY(10px); transition:0.2s ease; z-index:999; }
 .back-to-top.show { opacity:1; pointer-events:auto; transform:translateY(0); }
  
-/* =========================
-   TIMELINE
-   ========================= */
 #timeline .timeline { position:relative !important; display:grid !important; gap:14px !important; width:100% !important; padding-left:6px !important; }
 #timeline .timeline::before { content:""; position:absolute; left:12px; top:6px; bottom:6px; width:2px; background:rgba(27,127,90,0.22); border-radius:999px; }
 #timeline .timeline-item { display:grid !important; grid-template-columns:26px 1fr !important; gap:12px !important; align-items:start !important; width:100% !important; cursor:pointer !important; }
@@ -375,9 +285,6 @@ footer a, footer a:visited { color:#1b7f5a !important; font-weight:800; }
 #timeline .timeline-detail { display:none; margin-top:8px !important; color:#3c5148 !important; }
 #timeline .timeline-item.open .timeline-detail { display:block !important; }
  
-/* =========================
-   QUIZ
-   ========================= */
 #quiz .quiz-container { background:rgba(255,255,255,0.70) !important; border:1px solid rgba(27,127,90,0.14) !important; border-radius:20px !important; padding:18px !important; box-shadow:0 10px 24px rgba(0,0,0,0.08) !important; }
 #quiz .quiz-progress-wrap { width:100% !important; height:10px !important; border-radius:999px !important; background:rgba(27,127,90,0.12) !important; overflow:hidden !important; }
 #quiz .quiz-progress-bar { height:100% !important; width:0%; background:#1b7f5a !important; transition:width 0.25s ease !important; }
@@ -393,11 +300,7 @@ footer a, footer a:visited { color:#1b7f5a !important; font-weight:800; }
 #quiz .quiz-feedback.ok { background:rgba(27,127,90,0.10) !important; }
 #quiz .quiz-feedback.no { background:rgba(240,8,8,0.08) !important; }
  
-/* =========================
-   RESPONSIVE
-   ========================= */
 @media (max-width:900px) { .hero-buttons { flex-direction:column; } .btn { width:100%; text-align:center; } }
- 
 @media (max-width:700px) {
   body { background-attachment:scroll; }
   header, .section-card, footer { margin-left:12px; margin-right:12px; padding:20px; }
