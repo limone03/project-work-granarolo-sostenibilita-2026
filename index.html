@@ -6,29 +6,34 @@
   <title>Granarolo e la sostenibilità della filiera lattiero-casearia</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-
+ 
 <body>
-<!-- Splash iniziale -->
+ 
+<!-- ═══════════════════════════════════════════
+     SPLASH LIQUID REVEAL
+     ═══════════════════════════════════════════ -->
 <div class="splash" id="splash">
-  <div class="splash-box">
+  <div class="splash-content">
     <div class="splash-logo">g</div>
     <p class="splash-title">Granarolo · Sostenibilità</p>
-    <p class="splash-sub">Caricamento…</p>
-    <div class="splash-particles" id="splashParticles"></div>
+  </div>
+  <div class="splash-wave-wrap" id="splashWaveWrap">
+    <svg class="splash-wave-svg"
+         viewBox="0 0 1440 120" preserveAspectRatio="none"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z"
+            fill="#eef5ef"/>
+    </svg>
   </div>
 </div>
-
+ 
   <div class="progress-bar" id="progressBar"></div>
-
-  <!-- Dark mode toggle fisso -->
   <button class="dark-toggle" id="darkToggle" aria-label="Attiva modalità scura" title="Modalità scura">🌙</button>
-
+ 
   <header id="top">
     <div class="header-top">
       <img src="img/granarolo_logo.jpg" alt="Logo Granarolo" class="logo">
-
       <button class="menu-toggle" id="menuToggle" aria-label="Apri menu" aria-expanded="false">☰</button>
-
       <nav class="side-nav" id="sideNav" aria-label="Navigazione">
         <button class="menu-close" id="menuClose" aria-label="Chiudi menu">✕</button>
         <ul>
@@ -41,20 +46,16 @@
           <li><a href="report/report-sostenibilita-granarolo.pdf" download>Scarica PDF</a></li>
         </ul>
       </nav>
-
       <div class="overlay" id="menuOverlay"></div>
     </div>
-
+ 
     <div class="hero animate-on-scroll">
       <span class="tag">Project Work · Sostenibilità</span>
-
       <h1>Granarolo e la sostenibilità della filiera lattiero-casearia</h1>
-
       <p>
         Una pagina di sintesi dedicata alle principali azioni e ai numeri chiave del report di sostenibilità (2024),
         con accesso diretto al PDF ufficiale.
       </p>
-
       <div class="hero-buttons">
         <a href="report/report-sostenibilita-granarolo.pdf" download class="btn btn-primary pdf-button">
           Scarica il report PDF
@@ -63,9 +64,9 @@
       </div>
     </div>
   </header>
-
+ 
   <main class="container">
-
+ 
     <section id="chi-siamo" class="section-card animate-on-scroll">
       <div class="section-intro">
         <span class="section-label">Contesto</span>
@@ -77,7 +78,7 @@
         collegate alla produzione di latte.
       </p>
     </section>
-
+ 
     <section id="obiettivo" class="section-card animate-on-scroll">
       <div class="section-intro">
         <span class="section-label">Scopo</span>
@@ -87,7 +88,6 @@
         L'obiettivo è sintetizzare le azioni principali e alcuni numeri chiave tratti dal Summary 2024,
         mantenendo sempre il collegamento al report ufficiale tramite download PDF.
       </p>
-
       <div class="report-box">
         <p>Per approfondire i dati e le iniziative descritte nella pagina è possibile consultare il report completo in formato PDF.</p>
         <a href="report/report-sostenibilita-granarolo.pdf" download class="btn btn-primary pdf-button">
@@ -95,15 +95,14 @@
         </a>
       </div>
     </section>
-
+ 
     <section id="azioni" class="section-card animate-on-scroll">
       <div class="section-intro">
         <span class="section-label">Interventi</span>
         <h2>Azioni principali</h2>
       </div>
-
+ 
       <div class="azioni-grid">
-
         <article class="azione-card" data-tooltip="Miglioramento delle condizioni di allevamento e riduzione dell'uso di farmaci veterinari per una filiera più sana.">
           <span class="card-number">01</span>
           <h3>Benessere animale</h3>
@@ -111,7 +110,7 @@
           <a class="scopri-link" href="azione.html?id=azione1">Scopri di più</a>
           <div class="card-tooltip" aria-hidden="true"></div>
         </article>
-
+ 
         <article class="azione-card" data-tooltip="L'alimentazione ottimizzata riduce i consumi e l'impatto ambientale senza compromettere la qualità produttiva.">
           <span class="card-number">02</span>
           <h3>Nutrizione animale sostenibile</h3>
@@ -119,7 +118,7 @@
           <a class="scopri-link" href="azione.html?id=azione2">Scopri di più</a>
           <div class="card-tooltip" aria-hidden="true"></div>
         </article>
-
+ 
         <article class="azione-card" data-tooltip="Pratiche agricole ottimizzate per il suolo, le risorse naturali e la cattura della CO₂.">
           <span class="card-number">03</span>
           <h3>Pratiche agronomiche</h3>
@@ -127,7 +126,7 @@
           <a class="scopri-link" href="azione.html?id=azione3">Scopri di più</a>
           <div class="card-tooltip" aria-hidden="true"></div>
         </article>
-
+ 
         <article class="azione-card" data-tooltip="Monitoraggio continuo e interventi mirati per rendere la sostenibilità misurabile e verificabile.">
           <span class="card-number">04</span>
           <h3>Riduzione dell'impatto della produzione di latte</h3>
@@ -135,7 +134,7 @@
           <a class="scopri-link" href="azione.html?id=azione4">Scopri di più</a>
           <div class="card-tooltip" aria-hidden="true"></div>
         </article>
-
+ 
         <article class="azione-card" data-tooltip="Economia circolare di filiera: i sottoprodotti diventano energia rinnovabile, riducendo le emissioni.">
           <span class="card-number">05</span>
           <h3>Progetto biometano</h3>
@@ -143,65 +142,56 @@
           <a class="scopri-link" href="azione.html?id=azione5">Scopri di più</a>
           <div class="card-tooltip" aria-hidden="true"></div>
         </article>
-
       </div>
     </section>
-
-    <!-- ===================== NUMERI + GRAFICI ON-CLICK ===================== -->
+ 
     <section id="numeri" class="section-card animate-on-scroll">
       <div class="section-intro">
         <span class="section-label">Dati</span>
         <h2>Numeri chiave</h2>
       </div>
-
+ 
       <div class="numeri-grid">
         <article>
           <h3><span class="counter" data-target="60000" data-prefix="-" data-suffix=" t">-60.000 t</span></h3>
           <p>CO₂ eq/anno di riduzione stimata grazie al progetto biometano.</p>
           <p class="show-chart" data-chart="co2">Mostra grafico</p>
         </article>
-
         <article>
           <h3><span class="counter" data-target="30" data-prefix="-" data-suffix="%">-30%</span></h3>
           <p>Obiettivo di riduzione delle emissioni lungo la filiera entro il 2030.</p>
           <p class="show-chart" data-chart="target">Mostra grafico</p>
         </article>
-
         <article>
           <h3><span class="counter" data-target="80" data-prefix="" data-suffix="+">80+</span></h3>
           <p>Allevamenti monitorati con attività di misurazione e miglioramento continuo.</p>
           <p class="show-chart" data-chart="farms">Mostra grafico</p>
         </article>
       </div>
-
-      <!-- BOX GRAFICI (si apre solo al click) -->
+ 
       <div class="mini-charts" id="miniCharts" aria-hidden="true">
         <div class="mini-charts-head">
           <span id="chartTitle">Grafico</span>
           <button type="button" class="mini-charts-close" id="closeCharts">Chiudi</button>
         </div>
-
         <div class="bar-row" data-pct="100">
           <span class="bar-label">Biometano</span>
           <div class="bar-track"><div class="bar-fill"></div></div>
           <span class="bar-value">-60.000 t CO₂</span>
         </div>
-
         <div class="bar-row" data-pct="70">
           <span class="bar-label">Obiettivo 2030</span>
           <div class="bar-track"><div class="bar-fill"></div></div>
           <span class="bar-value">-30%</span>
         </div>
-
         <div class="bar-row" data-pct="55">
           <span class="bar-label">Monitoraggio</span>
           <div class="bar-track"><div class="bar-fill"></div></div>
           <span class="bar-value">80+ allevamenti</span>
         </div>
       </div>
-
+ 
       <p class="fonte">Fonte: Report di sostenibilità Granarolo – Summary 2024.</p>
-
       <div class="report-box">
         <p>Per approfondire: download del report completo in PDF.</p>
         <a href="report/report-sostenibilita-granarolo.pdf" download class="btn btn-primary pdf-button">
@@ -209,17 +199,14 @@
         </a>
       </div>
     </section>
-
-    <!-- ===================== TIMELINE INTERATTIVA ===================== -->
+ 
     <section id="timeline" class="section-card animate-on-scroll">
       <div class="section-intro">
         <span class="section-label">Roadmap</span>
         <h2>Timeline degli obiettivi</h2>
       </div>
       <p style="color:#3c5148; margin-bottom:28px;">Clicca su ogni tappa per espandere i dettagli.</p>
-
       <div class="timeline">
-
         <div class="timeline-item" data-anno="2020">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
@@ -230,7 +217,6 @@
             </div>
           </div>
         </div>
-
         <div class="timeline-item" data-anno="2022">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
@@ -241,7 +227,6 @@
             </div>
           </div>
         </div>
-
         <div class="timeline-item" data-anno="2024">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
@@ -252,7 +237,6 @@
             </div>
           </div>
         </div>
-
         <div class="timeline-item" data-anno="2030">
           <div class="timeline-dot timeline-dot--futuro"></div>
           <div class="timeline-content">
@@ -263,34 +247,24 @@
             </div>
           </div>
         </div>
-
       </div>
     </section>
-
-    <!-- ===================== QUIZ INTERATTIVO ===================== -->
+ 
     <section id="quiz" class="section-card animate-on-scroll">
       <div class="section-intro">
         <span class="section-label">Interattivo</span>
         <h2>Quiz sulla sostenibilità</h2>
       </div>
       <p style="color:#3c5148; margin-bottom: 24px;">Metti alla prova le tue conoscenze sul report Granarolo 2024.</p>
-
       <div class="quiz-container" id="quizContainer">
-
         <div class="quiz-progress-wrap">
           <div class="quiz-progress-bar" id="quizProgressBar"></div>
         </div>
         <p class="quiz-counter" id="quizCounter">Domanda 1 di 5</p>
-
         <div class="quiz-domanda" id="quizDomanda"></div>
-
         <div class="quiz-opzioni" id="quizOpzioni"></div>
-
         <div class="quiz-feedback" id="quizFeedback" aria-live="polite"></div>
-
         <button class="btn btn-primary" id="quizNext" style="display:none; margin-top:18px;">Prossima domanda →</button>
-
-        <!-- Risultato finale -->
         <div class="quiz-risultato" id="quizRisultato" style="display:none;">
           <div class="quiz-risultato-inner">
             <div class="quiz-score-circle" id="quizScoreCircle"></div>
@@ -299,20 +273,19 @@
             <button class="btn btn-primary" id="quizReset">Riprova il quiz ↺</button>
           </div>
         </div>
-
       </div>
     </section>
-
+ 
   </main>
-
+ 
   <footer>
     <p><strong>Project Work – Granarolo e sostenibilità</strong></p>
     <p>Pagina realizzata per il progetto universitario.</p>
     <a href="#top">Torna su</a>
   </footer>
-
+ 
   <a href="#top" class="back-to-top" id="backToTop" aria-label="Torna su">↑</a>
-
+ 
   <script src="script.js"></script>
 </body>
-</html>
+</html
